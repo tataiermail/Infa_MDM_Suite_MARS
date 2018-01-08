@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" output="target/classes" path="src/main/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/mysql-connector-java-5.1.43-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ojdbc5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ojdbc5_g.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ojdbc5dms.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ojdbc5dms_g.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ojdbc6_g.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ph-commons-6.2.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ph-css-4.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/providerutil.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/rhino-1.7.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/rsyntaxtextarea-2.5.8.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/saxon.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/serializer-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/sikulixapi.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/slf4j-api-1.7.13.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/sqljdbc41.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/sqljdbc42.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/tika-core-1.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/tika-parsers-1.12.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/ucanaccess-4.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/xalan-2.7.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/xercesImpl-2.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/xml-apis-1.4.01.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/xmlgraphics-commons-2.0.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/xmlpull-1.1.3.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/ad23382/Documents/apache-jmeter-3.0/apache-jmeter-3.0/lib/xpp3_min-1.1.4c.jar"/>
+	<classpathentry kind="lib" path="W:/Suman/jmeter/com.cts.mars.jar"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>
