@@ -30,7 +30,7 @@ public class XmlDiff extends XMLTestCase  {
 		String xml1 = "<open><id>123</id></open>";
 		String xml2 = "<open><id>123</id></open>";
  
-		//XML comparison comparison
+		//XML comparison configs
 		XMLUnit.setIgnoreWhitespace(true);
 		XMLUnit.setIgnoreComments(true);
 		XMLUnit.setIgnoreAttributeOrder(true);
