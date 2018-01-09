@@ -6,6 +6,8 @@ import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
 //import org.junit.Assert;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,10 +27,20 @@ public class XmlDiff extends XMLTestCase  {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static void main(String[] args) throws SAXException, IOException  {
+	public static void main(String[] args) throws SAXException, IOException, FileNotFoundException  {
 
-		String xml1 = "<open><id>123</id></open>";
-		String xml2 = "<open><id>123</id></open>";
+		FileReader fr1 = null;
+		FileReader fr2 = null;
+		int countofdifferences = 0;
+		try {
+	            fr1 = new FileReader("C:\\Work\\1.xml");
+	            fr2 = new FileReader("C:\\Work\\2.xml");
+	        } catch (FileNotFoundException e) {
+	            e.printStackTrace();
+	        }
+        
+		//String xml1 = "<open><id>123</id></open>";
+		//String xml2 = "<open><id>1234</id></open>";
  
 		//XML comparison configs
 		XMLUnit.setIgnoreWhitespace(true);
@@ -38,7 +50,8 @@ public class XmlDiff extends XMLTestCase  {
 		//assertXMLEquals(xml1, xml2);
 		
 		try {
-		Diff diff = new Diff(xml1,xml2);
+		Diff diff = new Diff(fr1,fr2);
+		
 		System.out.println("Similar? " + diff.similar());
         System.out.println("Identical? " + diff.identical());
         
