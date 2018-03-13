@@ -1,0 +1,763 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="MongoDB Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments">Shows how to setup a MongoDB Test</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="xls" elementType="Argument">
+            <stringProp name="Argument.name">xls</stringProp>
+            <stringProp name="Argument.value">C:\Users\tatai\Dropbox\Career\Skills\Jmeter_Frameworks\bin\MARS_Test_Data_Input.xlsx</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="csv" elementType="Argument">
+            <stringProp name="Argument.name">csv</stringProp>
+            <stringProp name="Argument.value">C:\Users\tatai\Dropbox\Career\Skills\Jmeter_Frameworks\bin\MARS_Mongo\mongoInput.csv</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="base_dir" elementType="Argument">
+            <stringProp name="Argument.name">base_dir</stringProp>
+            <stringProp name="Argument.value">C:\Users\tatai\Dropbox\Career\Skills\MongoDB\MARS_Mongo</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="sheet" elementType="Argument">
+            <stringProp name="Argument.name">sheet</stringProp>
+            <stringProp name="Argument.value">SqlVsMql</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="delim" elementType="Argument">
+            <stringProp name="Argument.name">delim</stringProp>
+            <stringProp name="Argument.value">;</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="AWS Cloud MDM DB Connector" enabled="true">
+        <stringProp name="dataSource">aws</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">false</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">Select 1 from dual</stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@//myrdsorcl.cahrgql4rsph.us-east-2.rds.amazonaws.com:1521/ORCL</stringProp>
+        <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+        <stringProp name="username">tataiermail</stringProp>
+        <stringProp name="password">07dy8w9hq</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Mongo Cloud mLab Connector" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="server" elementType="Argument">
+            <stringProp name="Argument.name">server</stringProp>
+            <stringProp name="Argument.value">ds147480.mlab.com</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="port" elementType="Argument">
+            <stringProp name="Argument.name">port</stringProp>
+            <stringProp name="Argument.value">47480</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="db" elementType="Argument">
+            <stringProp name="Argument.name">db</stringProp>
+            <stringProp name="Argument.value">deliverdb</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user" elementType="Argument">
+            <stringProp name="Argument.name">user</stringProp>
+            <stringProp name="Argument.value">suman</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pass" elementType="Argument">
+            <stringProp name="Argument.name">pass</stringProp>
+            <stringProp name="Argument.value">suman123</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="MongoDB Source Config Local" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="server" elementType="Argument">
+            <stringProp name="Argument.name">server</stringProp>
+            <stringProp name="Argument.value">localhost</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="port" elementType="Argument">
+            <stringProp name="Argument.name">port</stringProp>
+            <stringProp name="Argument.value">27017</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="db" elementType="Argument">
+            <stringProp name="Argument.name">db</stringProp>
+            <stringProp name="Argument.value">students</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="user" elementType="Argument">
+            <stringProp name="Argument.name">user</stringProp>
+            <stringProp name="Argument.value">suman</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="pass" elementType="Argument">
+            <stringProp name="Argument.name">pass</stringProp>
+            <stringProp name="Argument.value">suman123</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MARS Excel to CSV Converter" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1501798154000</longProp>
+        <longProp name="ThreadGroup.end_time">1501798154000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="Mars Excel to CSV" enabled="true">
+          <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+          <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+          <stringProp name="SystemSampler.command">CMD</stringProp>
+          <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="Argument">
+                <stringProp name="Argument.name"></stringProp>
+                <stringProp name="Argument.value">/c java -jar cts.mars_suite.jar xls2CsvConv ${xls} ${csv} ${sheet} ${delim}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SystemSampler.directory">C:\Users\tatai\OneDrive\apache-jmeter-3.3\lib</stringProp>
+        </SystemSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Mongo Custom Java Thread" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">30</stringProp>
+        <longProp name="ThreadGroup.start_time">1367357168000</longProp>
+        <longProp name="ThreadGroup.end_time">1367357168000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
+        <stringProp name="ThreadGroup.delay">10</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="false">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${var2}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+            <stringProp name="delimiter">,</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">C:\Users\Tatai\Dropbox\Jmeter_Frameworks\conf\Hello_World\flatfile.txt</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${var2}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="OS Process Sampler ${var2}" enabled="true">
+              <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+              <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+              <stringProp name="SystemSampler.command">C:\Users\Tatai\Dropbox\Jmeter_Frameworks\bin\Hello_World\script.bat</stringProp>
+              <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="SystemSampler.directory"></stringProp>
+            </SystemSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Insert into testCollection" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.WriteResult;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBCollection;
+import com.mongodb.WriteConcern;
+import com.mongodb.WriteResult;
+
+// Get DB
+com.mongodb.DB db = org.apache.jmeter.protocol.mongodb.config.MongoDBHolder.getDBFromSource(&quot;db&quot;, &quot;test&quot;);
+
+// Get collection to insert
+DBCollection coll = db.getCollection(&quot;testCollection&quot;);
+BasicDBObject doc = new BasicDBObject(&quot;name&quot;, &quot;MongoDB&quot;).
+                              append(&quot;type&quot;, &quot;database&quot;).
+                              append(&quot;count&quot;, 1).
+                              append(&quot;info&quot;, new BasicDBObject(&quot;x&quot;, 203).append(&quot;y&quot;, 102));
+
+// Insert object
+WriteResult wr = coll.insert(doc, WriteConcern.ACKNOWLEDGED);
+
+// Set response data
+SampleResult.setResponseData(&quot;&quot;+wr.toString(),&quot;UTF-8&quot;);</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1358912096">&quot;err&quot; :  null</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">2</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Connect to MongoDB" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCollection;
+//-------------------------------------
+
+import com.mongodb.*;
+
+import java.util.List;
+import java.util.Set;
+
+//import java.util.concurrent.TimeUnit.SECONDS;
+//-------------------------------------
+// To directly connect to a single MongoDB server (note that this will not auto-discover the primary even
+// if it&apos;s a member of a replica set
+MongoCredential credential = MongoCredential.createMongoCRCredential(&quot;${user}&quot;, &quot;${db}&quot;, &quot;suman123&quot;.toCharArray() );
+MongoClient mongoClient = new MongoClient(new ServerAddress( &quot;${server}&quot; , ${port} ), Arrays.asList(credential));
+//MongoClient mongoClient = new MongoClient();
+// or, to connect to a replica set, with auto-discovery of the primary, supply a seed list of members
+/* 
+ *  MongoClient mongoClient = new MongoClient(Arrays.asList(new ServerAddress(&quot;localhost&quot;, 27017),
+                                      new ServerAddress(&quot;localhost&quot;, 27018),
+                                      new ServerAddress(&quot;localhost&quot;, 27019)));
+                                      */
+DB db = mongoClient.getDB( &quot;${db}&quot; );
+//-------------------------------------
+
+//DB db = MongoDBHolder.getDBFromSource(&quot;db&quot;, &quot;deliverdb&quot;);
+
+DBCollection coll = db.getCollection(&quot;students&quot;);
+int size = coll.count();
+//SampleResult.setResponseData(&quot;&quot;+size,&quot;UTF-8&quot;);
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="91555">\d+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Connect to MongoDB 2" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+//-------------------------------------
+import com.mongodb.*;
+
+import java.util.List;
+import java.util.Set;
+
+//import java.util.concurrent.TimeUnit.SECONDS;
+//-------------------------------------
+
+String URI = &quot;mongodb://&quot; + vars.get(&quot;server&quot;) + &quot;:&quot; + vars.get(&quot;port&quot;) + &quot;/&quot; + vars.get(&quot;db&quot;);
+log.info(URI);
+
+MongoClient mongoClient = new MongoClient(
+  //new MongoClientURI( &quot;mongodb://suman:suman123@ds147480.mlab.com:47480/deliverdb&quot; )
+  new MongoClientURI( URI )
+);
+
+DB db = mongoClient.getDB( vars.get(&quot;db&quot;) );
+DBCollection coll = db.getCollection(&quot;grades&quot;);
+int size = coll.count();
+SampleResult.setResponseData(&quot;&quot;+size,&quot;UTF-8&quot;);
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="91555">\d+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Count from Collection" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCollection;
+
+DB db = MongoDBHolder.getDBFromSource(&quot;db&quot;, &quot;deliverdb&quot;);
+
+DBCollection coll = db.getCollection(&quot;students&quot;);
+int size = coll.count();
+SampleResult.setResponseData(&quot;&quot;+size,&quot;UTF-8&quot;);
+</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="91555">\d+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.custom_message"></stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Single Document from Collection" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCollection;
+
+DB db = MongoDBHolder.getDBFromSource(&quot;db&quot;, &quot;test&quot;);
+
+DBCollection coll = db.getCollection(&quot;bankAccnts&quot;);
+String data = coll.findOne();
+SampleResult.setResponseData(&quot;&quot;+data,&quot;UTF-8&quot;);</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Data from Collection" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.MongoClient;
+import com.mongodb.ServerAddress;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCursor;
+import com.mongodb.DBCollection;
+//======================================================================
+MongoClient mongoClient = new MongoClient(new ServerAddress(&quot;${serverIP}&quot;, ${serverPort}));
+DB db = mongoClient.getDB(&quot;${mongodb}&quot;);
+// System.Out.println does NOT print to response tab
+// log.info prints to console only and NOT to Response tab
+//DB db = MongoDBHolder.getDBFromSource(&quot;db&quot;, &quot;${mongodb}&quot;);
+DBCollection coll = db.getCollection(&quot;${collectionName}&quot;);
+DBCursor cursor = coll.find();
+StringBuilder rs = new StringBuilder();
+rs.append(&quot;Collection: \n&quot;);
+while( cursor.hasNext() )  {
+    	DBObject obj = cursor.next();
+    	rs.append(obj.toString());
+    	rs.append(&quot;\n&quot;);
+}
+rs.toString();
+//String variable at the LAST LINE of this Groovy script will be displayed in Results tab, even if no Display methods are invoked !!!</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Projection from Collection" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.MongoClient;
+import com.mongodb.ServerAddress;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCursor;
+import com.mongodb.DBCollection;
+//======================================================================
+MongoClient mongoClient = new MongoClient(new ServerAddress(&quot;${serverIP}&quot;, ${serverPort}));
+DB db = mongoClient.getDB(&quot;${mongodb}&quot;);
+DBCollection coll = db.getCollection(&quot;${collectionName}&quot;);
+
+StringBuilder rs = new StringBuilder();
+rs.append(&quot;Collection: \n&quot;);
+
+BasicDBObject allQuery = new BasicDBObject();
+BasicDBObject fields = new BasicDBObject();
+fields.put(&quot;name&quot;, 1);
+fields.put(&quot;age&quot;, 1);
+fields.put(&quot;eyeColor&quot;, 1);
+fields.put(&quot;balance&quot;, 1);
+DBCursor cursor = coll.find(allQuery, fields);
+while( cursor.hasNext() )  {
+    	DBObject obj = cursor.next();
+    	rs.append(obj.toString());
+    	rs.append(&quot;\n&quot;);
+}
+rs.toString();
+//String variable at the LAST LINE of this Groovy script will be displayed in Results tab, even if no Display methods are invoked !!!</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Projection from Collection with WHERE query" enabled="false">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.MongoClient;
+import com.mongodb.ServerAddress;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCursor;
+import com.mongodb.DBCollection;
+import com.mongodb.*;
+//======================================================================
+MongoClient mongoClient = new MongoClient(new ServerAddress(&quot;${serverIP}&quot;, ${serverPort}));
+DB db = mongoClient.getDB(&quot;${mongodb}&quot;);
+DBCollection coll = db.getCollection(&quot;${collectionName}&quot;);
+
+StringBuilder rs = new StringBuilder();
+rs.append(&quot;Collection: \n&quot;);
+
+BasicDBObject allQuery = new BasicDBObject();
+BasicDBObject fields = new BasicDBObject();
+fields.put(&quot;name&quot;, 1);     //projected fields
+fields.put(&quot;age&quot;, 1);      //projected fields
+fields.put(&quot;eyeColor&quot;, 1); //projected fields
+fields.put(&quot;balance&quot;, 1);  //projected fields
+BasicDBObject whereQuery = new BasicDBObject();
+whereQuery.put(&quot;gender&quot;, &quot;female&quot;);
+//whereQuery.put(&quot;age&quot;, new BasicDBObject(&quot;$gt&quot;, 30).append(&quot;$lt&quot;, 37));
+
+DBCursor cursor = coll.find(whereQuery, fields);
+while( cursor.hasNext() )  {
+    	DBObject obj = cursor.next();
+    	rs.append(obj.toString());
+    	rs.append(&quot;\n&quot;);
+}
+rs.toString();
+//String variable at the LAST LINE of this Groovy script will be displayed in Results tab, even if no Display methods are invoked !!!</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Projection from Collection with WHERE gt" enabled="false">
+          <stringProp name="scriptLanguage">java</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="script">import com.mongodb.DB;
+import org.apache.jmeter.protocol.mongodb.config.MongoDBHolder;
+import com.mongodb.MongoClient;
+import com.mongodb.ServerAddress;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DBObject;
+import com.mongodb.DBCursor;
+import com.mongodb.DBCollection;
+//import com.mongodb.*;
+//======================================================================
+MongoClient mongoClient = new MongoClient(new ServerAddress(&quot;${serverIP}&quot;, ${serverPort}));
+DB db = mongoClient.getDB(&quot;${mongodb}&quot;);
+DBCollection coll = db.getCollection(&quot;${collectionName}&quot;);
+
+StringBuilder rs = new StringBuilder();
+rs.append(&quot;Collection: \n&quot;);
+
+BasicDBObject allQuery = new BasicDBObject();
+BasicDBObject fields = new BasicDBObject();
+fields.put(&quot;name&quot;, 1);     //projected fields
+fields.put(&quot;age&quot;, 1);      //projected fields
+fields.put(&quot;eyeColor&quot;, 1); //projected fields
+fields.put(&quot;balance&quot;, 1);  //projected fields
+BasicDBObject whereQuery = new BasicDBObject();
+//whereQuery.put(&quot;gender&quot;, &quot;female&quot;);
+//whereQuery.put(&quot;age&quot;, new BasicDBObject(${gt}, 30));
+BasicDBObject gt = new BasicDBObject(&quot;$gt&quot;, 30);
+whereQuery.put(&quot;age&quot;, gt);
+
+DBCursor cursor = coll.find(whereQuery, fields);
+while( cursor.hasNext() )  {
+    	DBObject obj = cursor.next();
+    	rs.append(obj.toString());
+    	rs.append(&quot;\n&quot;);
+}
+rs.toString();
+//String variable at the LAST LINE of this Groovy script will be displayed in Results tab, even if no Display methods are invoked !!!</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223PreProcessor guiclass="TestBeanGUI" testclass="JSR223PreProcessor" testname="JSR223 PreProcessor" enabled="true">
+          <stringProp name="cacheKey">true</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script"></stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223PreProcessor>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SQL &amp; Mongo Thread" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">30</stringProp>
+        <longProp name="ThreadGroup.start_time">1367357168000</longProp>
+        <longProp name="ThreadGroup.end_time">1367357168000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">300</stringProp>
+        <stringProp name="ThreadGroup.delay">10</stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Script Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="mql_script_file" elementType="Argument">
+              <stringProp name="Argument.name">mql_script_file</stringProp>
+              <stringProp name="Argument.value">C:\Users\tatai\Dropbox\Career\Skills\Jmeter_Frameworks\bin\MARS_Mongo\temp\command.js</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="mql_tmp_script_file" elementType="Argument">
+              <stringProp name="Argument.name">mql_tmp_script_file</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="sql_log" elementType="Argument">
+              <stringProp name="Argument.name">sql_log</stringProp>
+              <stringProp name="Argument.value">C:\Users\tatai\Dropbox\Career\Skills\Jmeter_Frameworks\bin\MARS_Mongo\temp\sql.log</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="mql_log" elementType="Argument">
+              <stringProp name="Argument.name">mql_log</stringProp>
+              <stringProp name="Argument.value">C:\Users\tatai\Dropbox\Career\Skills\Jmeter_Frameworks\bin\MARS_Mongo\temp\mql.log</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Controller" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${Run}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Test Input" enabled="true">
+            <stringProp name="delimiter">;</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="filename">${csv}</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="variableNames"></stringProp>
+            <boolProp name="ignoreFirstLine">false</boolProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${Run}&quot; == &quot;Y&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" enabled="true">
+              <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+              <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+              <stringProp name="SystemSampler.command">cmd</stringProp>
+              <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="Argument">
+                    <stringProp name="Argument.name"></stringProp>
+                    <stringProp name="Argument.value">/c echo ${mql} &gt; ${mql_script_file}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="SystemSampler.directory"></stringProp>
+              <stringProp name="TestPlan.comments">Convert MQL Array</stringProp>
+            </SystemSampler>
+            <hashTree/>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">1000</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="AWS  RDS  SQL" enabled="true">
+              <stringProp name="dataSource">aws</stringProp>
+              <stringProp name="query">${sql}</stringProp>
+              <stringProp name="queryArguments"></stringProp>
+              <stringProp name="queryArgumentsTypes"></stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Select Statement</stringProp>
+              <stringProp name="resultVariable">srcResult</stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree>
+              <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save SQL Results" enabled="true">
+                <stringProp name="FileSaver.filename">${sql_log}</stringProp>
+                <boolProp name="FileSaver.errorsonly">false</boolProp>
+                <boolProp name="FileSaver.skipautonumber">true</boolProp>
+                <boolProp name="FileSaver.skipsuffix">true</boolProp>
+                <boolProp name="FileSaver.successonly">false</boolProp>
+              </ResultSaver>
+              <hashTree/>
+            </hashTree>
+            <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="mLab Cloud MQL" enabled="true">
+              <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+              <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+              <stringProp name="SystemSampler.command">cmd</stringProp>
+              <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="Argument">
+                    <stringProp name="Argument.name"></stringProp>
+                    <stringProp name="Argument.value">/c mongo --username ${user} --password ${pass} --quiet ${server}:${port}/${db} &lt; ${mql_script_file}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="SystemSampler.directory"></stringProp>
+            </SystemSampler>
+            <hashTree>
+              <ResultSaver guiclass="ResultSaverGui" testclass="ResultSaver" testname="Save MQL Results" enabled="true">
+                <stringProp name="FileSaver.filename">${mql_log}</stringProp>
+                <boolProp name="FileSaver.errorsonly">false</boolProp>
+                <boolProp name="FileSaver.skipautonumber">true</boolProp>
+                <boolProp name="FileSaver.skipsuffix">true</boolProp>
+                <boolProp name="FileSaver.successonly">false</boolProp>
+              </ResultSaver>
+              <hashTree/>
+            </hashTree>
+            <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="DB vs Mongo Comparator" enabled="true">
+              <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+              <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+              <stringProp name="SystemSampler.command">cmd</stringProp>
+              <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="Argument">
+                    <stringProp name="Argument.name"></stringProp>
+                    <stringProp name="Argument.value">/c java -jar cts.mars_suite.jar sqlVsMql ${sql_log} ${mql_log}</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <stringProp name="SystemSampler.directory">C:\Users\tatai\OneDrive\apache-jmeter-3.3\lib</stringProp>
+            </SystemSampler>
+            <hashTree>
+              <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                <collectionProp name="Asserion.test_strings">
+                  <stringProp name="-442313100">Extra in SQL Output: :: NONE</stringProp>
+                </collectionProp>
+                <stringProp name="Assertion.custom_message"></stringProp>
+                <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                <boolProp name="Assertion.assume_success">false</boolProp>
+                <intProp name="Assertion.test_type">2</intProp>
+                <stringProp name="Assertion.scope">all</stringProp>
+              </ResponseAssertion>
+              <hashTree/>
+            </hashTree>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Master Log" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>true</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">C:\Users\tatai\Dropbox\Career\Skills\Jmeter_Frameworks\bin\MARS_Mongo\logs\mars_log.xml</stringProp>
+        <stringProp name="TestPlan.comments">Remove for Load Test</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

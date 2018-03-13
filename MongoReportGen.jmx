@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.3 r1808647">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="MARS_Reporting" enabled="true">
+      <stringProp name="TestPlan.comments">Automated Regression Testing</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="url" elementType="Argument">
+            <stringProp name="Argument.name">url</stringProp>
+            <stringProp name="Argument.value">https://sits-dp-in.wellpoint.com/Member/1.0/MemberInformationCHUB</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="sit" elementType="Argument">
+            <stringProp name="Argument.name">sit</stringProp>
+            <stringProp name="Argument.value">https://sits-dp-in.wellpoint.com/Member/1.0/MemberInformationCHUB</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="uat" elementType="Argument">
+            <stringProp name="Argument.name">uat</stringProp>
+            <stringProp name="Argument.value">https://uats-dp-in.wellpoint.com/Member/1.0/MemberInformationCHUB</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="env" elementType="Argument">
+            <stringProp name="Argument.name">env</stringProp>
+            <stringProp name="Argument.value">SIT2</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Report Configs" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="base_path" elementType="Argument">
+            <stringProp name="Argument.name">base_path</stringProp>
+            <stringProp name="Argument.value">C:/Users/tatai/Dropbox/Career/Skills/Jmeter_Frameworks/</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_xml" elementType="Argument">
+            <stringProp name="Argument.name">v_xml</stringProp>
+            <stringProp name="Argument.value">bin/MARS_Mongo/logs/mars_log.xml</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_report_xslt" elementType="Argument">
+            <stringProp name="Argument.name">v_report_xslt</stringProp>
+            <stringProp name="Argument.value">config/report_files/MARS_JMeter_Report.xsl</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_dump_xslt" elementType="Argument">
+            <stringProp name="Argument.name">v_dump_xslt</stringProp>
+            <stringProp name="Argument.value">config/report_files/MARS_JMeter_Req_Resp_Dump.xsl</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_html" elementType="Argument">
+            <stringProp name="Argument.name">v_html</stringProp>
+            <stringProp name="Argument.value">bin/MARS_Mongo/logs/MARS_Mongo_Test_Report_</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="dump_dir_prefix" elementType="Argument">
+            <stringProp name="Argument.name">dump_dir_prefix</stringProp>
+            <stringProp name="Argument.value">bin/MARS_Mongo/logs/MARS_File_Dump_</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MARS Reporting Thread" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Report Generator" enabled="true">
+          <stringProp name="cacheKey">a82ae4f1-6ee0-4c10-9a5c-0a881f7f7c94</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import javax.xml.transform.*;
+//import java.net.*;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+//===============================================================================
+DateFormat dateFormat = new SimpleDateFormat(&quot;yyyy_MM_dd_HH&quot;);
+Date date = new Date();
+String dt = dateFormat.format(date);
+
+String basePath  = vars.get(&quot;base_path&quot;);
+String xml  = basePath + vars.get(&quot;v_xml&quot;);
+String xslt = basePath + vars.get(&quot;v_report_xslt&quot;);
+String html = basePath + vars.get(&quot;v_html&quot;) + dt + &quot;.html&quot;;
+		
+TransformerFactory tFactory = TransformerFactory.newInstance();
+Transformer transformer = tFactory.newTransformer(new javax.xml.transform.stream.StreamSource(xslt));
+
+transformer.transform(new javax.xml.transform.stream.StreamSource(xml),new javax.xml.transform.stream.StreamResult( new FileOutputStream(html)));
+		    
+System.out.println(&quot;HTML Report Generated.&quot;);
+
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="Request Response Dumper" enabled="true">
+          <stringProp name="cacheKey">a82ae4f1-6ee0-4c10-9a5c-0a881f7f7c94</stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="script">import javax.xml.transform.*;
+//import java.net.*;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+//========================================================================
+String basePath  = vars.get(&quot;base_path&quot;);
+
+DateFormat dateFormat = new SimpleDateFormat(&quot;yyyy_MM_dd_HH&quot;);
+Date date = new Date();
+String dt = dateFormat.format(date);
+
+String strDirectoy = basePath + vars.get(&quot;dump_dir_prefix&quot;) + dt;
+boolean success = (new File(strDirectoy)).mkdir();
+  if (success) {
+    System.out.println(&quot;Directory: &quot; + strDirectoy + &quot; created&quot;);
+  }
+System.setProperty( &quot;user.dir&quot;, strDirectoy );
+String value = (String)System.getProperty(&quot;user.dir&quot;);
+System.out.println(value);
+
+String xml  = basePath + vars.get(&quot;v_xml&quot;);
+String xslt = basePath + vars.get(&quot;v_dump_xslt&quot;);
+String html = basePath + &quot;dummy.dump&quot;;
+
+//System.out.println(xml); System.out.println(xslt); System.out.println(html);
+
+TransformerFactory tFactory = TransformerFactory.newInstance();
+Transformer transformer = tFactory.newTransformer(new javax.xml.transform.stream.StreamSource(xslt));
+
+transformer.transform(new javax.xml.transform.stream.StreamSource(xml),new javax.xml.transform.stream.StreamResult( new FileOutputStream(html)));
+
+//transformer.close();
+    
+System.out.println(&quot;File Dump Generated.&quot;);
+</stringProp>
+          <stringProp name="scriptLanguage">groovy</stringProp>
+        </JSR223Sampler>
+        <hashTree/>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="WorkBench" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
