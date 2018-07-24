@@ -1,0 +1,3003 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="3.0 r1743807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="RAW to SDS - Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">true</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="immkeys_file" elementType="Argument">
+            <stringProp name="Argument.name">immkeys_file</stringProp>
+            <stringProp name="Argument.value">eHUB_RAW_ISG_IMMKEYS_latest_EDITED.txt</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="base_data_folder" elementType="Argument">
+            <stringProp name="Argument.name">base_data_folder</stringProp>
+            <stringProp name="Argument.value">\\kyshared\EPOST\BIsquad\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS\data</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Reporting Variables" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="v_xml" elementType="Argument">
+            <stringProp name="Argument.name">v_xml</stringProp>
+            <stringProp name="Argument.value">Y:/Regression/Logs/Castlight_Logs.xml</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_report_xslt" elementType="Argument">
+            <stringProp name="Argument.name">v_report_xslt</stringProp>
+            <stringProp name="Argument.value">Y:/Regression/config/report_files/MARS_JMeter_Report.xsl</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_dump_xslt" elementType="Argument">
+            <stringProp name="Argument.name">v_dump_xslt</stringProp>
+            <stringProp name="Argument.value">Y:/Regression/config/report_files/MARS_JMeter_Req_Resp_Dump.xsl</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_html" elementType="Argument">
+            <stringProp name="Argument.name">v_html</stringProp>
+            <stringProp name="Argument.value">Y:/Regression/Logs/MARS_JMeter_CastLight_Report_</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="v_dump_file" elementType="Argument">
+            <stringProp name="Argument.name">v_dump_file</stringProp>
+            <stringProp name="Argument.value">Y:/Regression/Logs/</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="base_dir" elementType="Argument">
+            <stringProp name="Argument.name">base_dir</stringProp>
+            <stringProp name="Argument.value">Y:/Regression/Logs/MARS_JMeter_CastLight_File_Dump_</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="SDS_DATE_FILTER" elementType="Argument">
+            <stringProp name="Argument.name">SDS_DATE_FILTER</stringProp>
+            <stringProp name="Argument.value">0</stringProp>
+            <stringProp name="Argument.desc">Filter for last_updt_dtm: Run for last how many days</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="DEFAULT_DATE" elementType="Argument">
+            <stringProp name="Argument.name">DEFAULT_DATE</stringProp>
+            <stringProp name="Argument.value">171231</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+            <stringProp name="Argument.desc">Current year&apos;s last date in YYMMDD format</stringProp>
+          </elementProp>
+          <elementProp name="Base_directory" elementType="Argument">
+            <stringProp name="Argument.name">Base_directory</stringProp>
+            <stringProp name="Argument.value">\\kyshared\EPOST\BIsquad\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS</stringProp>
+            <stringProp name="Argument.desc">Directory for bin, data and log file</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="PC SIT" enabled="false">
+        <stringProp name="dataSource">db</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">false</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">Select 1 from dual</stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@//va10dx05-scan2:1525/ehu1s</stringProp>
+        <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+        <stringProp name="username">EHUB_MBR_DAL_SVCID</stringProp>
+        <stringProp name="password">Mar#3thr</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="CHUB SIT1 - DBT3" enabled="false">
+        <stringProp name="dataSource">trg</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">Select 1 from sysibm.sysdummy1</stringProp>
+        <stringProp name="dbUrl">jdbc:db2://sysc.wellpoint.com:3225/DBT3</stringProp>
+        <stringProp name="driver">com.ibm.db2.jcc.DB2Driver</stringProp>
+        <stringProp name="username">af45799</stringProp>
+        <stringProp name="password">july@123</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="EHUB SIT" enabled="true">
+        <stringProp name="dataSource">trg</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="transactionIsolation">DEFAULT</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">Select 1 from dual</stringProp>
+        <stringProp name="dbUrl">jdbc:oracle:thin:@//va10dx05-scan2:1525/ehu1s</stringProp>
+        <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+        <stringProp name="username">af45799</stringProp>
+        <stringProp name="password">aug_2017</stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="RAW Files" enabled="true">
+        <stringProp name="dataSource">src</stringProp>
+        <stringProp name="poolMax">10</stringProp>
+        <stringProp name="timeout">10000</stringProp>
+        <stringProp name="trimInterval">60000</stringProp>
+        <boolProp name="autocommit">true</boolProp>
+        <stringProp name="transactionIsolation">TRANSACTION_SERIALIZABLE</stringProp>
+        <boolProp name="keepAlive">true</boolProp>
+        <stringProp name="connectionAge">5000</stringProp>
+        <stringProp name="checkQuery">select * from DUAL</stringProp>
+        <stringProp name="dbUrl">jdbc:ucanaccess://C:\Work\NRT_RAW_DB.accdb</stringProp>
+        <stringProp name="driver">net.ucanaccess.jdbc.UcanaccessDriver</stringProp>
+        <stringProp name="username"></stringProp>
+        <stringProp name="password"></stringProp>
+      </JDBCDataSource>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW File Fetching from Unix ETL SIT server" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="RAW File Fetching from Unix ETL SIT server" enabled="true">
+          <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+          <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+          <stringProp name="SystemSampler.command">\\kyshared\EPOST\BIsquad\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS\bin\file_fetch_unix.bat</stringProp>
+          <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SystemSampler.directory"></stringProp>
+        </SystemSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW Formatting" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="RAW Splitter" enabled="true">
+          <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+          <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+          <stringProp name="SystemSampler.command">${Base_directory}\bin\file_splitter.bat</stringProp>
+          <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SystemSampler.directory"></stringProp>
+        </SystemSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Extract Data Cleanup Layer for IMMKEYS" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Cleanup IMMKEYS table Data" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">DELETE * FROM RAW_IMMKEYS;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="IMMKEYS Extract Parsing Layer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Loop" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="false">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">c1</stringProp>
+            <stringProp name="CounterConfig.format">0000</stringProp>
+            <boolProp name="CounterConfig.per_user">true</boolProp>
+            <boolProp name="CounterConfig.reset_on_tg_iteration">true</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config " enabled="true">
+            <stringProp name="filename">${base_data_folder}\eHUB_RAW_ISG_IMMKEYS_latest_EDITED.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_HCID,MM_TIME,MM_IND</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config" enabled="false">
+            <stringProp name="filename">${base_data_folder}\eHUB_RAW_ISG_IMMKEYS_20170818_030937_SIT1.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_HCID,MM_TIME,MM_IND</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="File to DB Conversion - RAW_IMMKEYS Record" enabled="true">
+              <stringProp name="dataSource">src</stringProp>
+              <stringProp name="query">INSERT INTO RAW_IMMKEYS (HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_HCID,MM_TIME,MM_IND)
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?)</stringProp>
+              <stringProp name="queryArguments">${HDR_1},${HDR_2},${HDR_DT},${HDR_TM},${HDR_SOR},${HDR_SEG},${HDR_OPR},${HDR_IND},${MM_CERT_NO},${MM_HCID},${MM_TIME},${MM_IND}</stringProp>
+              <stringProp name="queryArgumentsTypes">varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Prepared Update Statement</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Extract Data Cleanup Layer for MMLTNAM" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <SystemSampler guiclass="SystemSamplerGui" testclass="SystemSampler" testname="RAW Splitter" enabled="false">
+          <boolProp name="SystemSampler.checkReturnCode">false</boolProp>
+          <stringProp name="SystemSampler.expectedReturnCode">0</stringProp>
+          <stringProp name="SystemSampler.command">\\kyshared\epost\qa\sit\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS\bin\file_splitter.bat</stringProp>
+          <elementProp name="SystemSampler.arguments" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <elementProp name="SystemSampler.environment" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="SystemSampler.directory"></stringProp>
+        </SystemSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Cleanup MMLTNAM table Data" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">DELETE * FROM RAW_MMLTNAM;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MMLTNAM Extract Parsing Layer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Loop" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="false">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">c1</stringProp>
+            <stringProp name="CounterConfig.format">0000</stringProp>
+            <boolProp name="CounterConfig.per_user">true</boolProp>
+            <boolProp name="CounterConfig.reset_on_tg_iteration">true</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config" enabled="true">
+            <stringProp name="filename">${base_data_folder}\MMLTNAM.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_MEMBER_CD,MM_LAST_NAME</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="File to DB Conversion - RAW_MMLTNAM Record" enabled="true">
+              <stringProp name="dataSource">src</stringProp>
+              <stringProp name="query">INSERT INTO RAW_MMLTNAM (HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_MEMBER_CD,MM_LAST_NAME)
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);</stringProp>
+              <stringProp name="queryArguments">${HDR_1},${HDR_2},${HDR_DT},${HDR_TM},${HDR_SOR},${HDR_SEG},${HDR_OPR},${HDR_IND},${MM_CERT_NO},${MM_GROUP_NO},${MM_CONT_CD},${MM_CONT_TYPE},${MM_LIST_BILL_NO},${MM_MEMBER_CD},${MM_LAST_NAME}</stringProp>
+              <stringProp name="queryArgumentsTypes">varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Prepared Update Statement</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Extract Data Cleanup Layer for MMCERT" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Cleanup MMCERT table Data" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">DELETE * FROM RAW_MMCERT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MMCERT Extract Parsing Layer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Loop" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="false">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">c1</stringProp>
+            <stringProp name="CounterConfig.format">0000</stringProp>
+            <boolProp name="CounterConfig.per_user">true</boolProp>
+            <boolProp name="CounterConfig.reset_on_tg_iteration">true</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config" enabled="true">
+            <stringProp name="filename">${base_data_folder}\MMCERT.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_AUDIT_TRAIL_DT,MM_AUDIT_TRAIL_TM,MM_NO_SEGS_IN_CERT,MM_PURGE_DT,MM_NSF_ACCUMULATOR,MM_MKT_IND,MM_CERT_STAT_CD,MM_CERT_INDICATOR,MM_LANG_IND,MM_MGMT_AREA,MM_ADDR_CHANGE_IND,MM_FILLER1,MM_RATE_OED_MED,MM_RATE_OED_DENT,MM_RATE_OED_LIFE,MM_OVRD_GUAR_DT_1,MM_OVRD_TAG_1,MM_OVRD_GUAR_DT_2,MM_OVRD_TAG_2,MM_OVRD_GUAR_DT_3,MM_OVRD_TAG_3,MM_OVRD_GUAR_DT_4,MM_OVRD_TAG_4,MM_OVRD_GUAR_DT_5,MM_OVRD_TAG_5,MM_OVRD_GUAR_DT_6,MM_OVRD_TAG_6,MM_LANG_OF_CHOICE,MM_LANG_DIALECT,MM_USE_LANG_OF_CHOICE,MM_DESIGNEE_WAIVER_IND,MM_AUTO_SB_ENROLL_IND,MM_STIMULUS_SUBSIDY_IND</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="File to DB Conversion - RAW_MMCERT Record" enabled="true">
+              <stringProp name="dataSource">src</stringProp>
+              <stringProp name="query">INSERT INTO RAW_MMCERT (HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_AUDIT_TRAIL_DT,MM_AUDIT_TRAIL_TM,MM_NO_SEGS_IN_CERT,MM_PURGE_DT,MM_NSF_ACCUMULATOR,MM_MKT_IND,MM_CERT_STAT_CD,MM_CERT_INDICATOR,MM_LANG_IND,MM_MGMT_AREA,MM_ADDR_CHANGE_IND,MM_FILLER1,MM_RATE_OED_MED,MM_RATE_OED_DENT,MM_RATE_OED_LIFE,MM_OVRD_GUAR_DT_1,MM_OVRD_TAG_1,MM_OVRD_GUAR_DT_2,MM_OVRD_TAG_2,MM_OVRD_GUAR_DT_3,MM_OVRD_TAG_3,MM_OVRD_GUAR_DT_4,MM_OVRD_TAG_4,MM_OVRD_GUAR_DT_5,MM_OVRD_TAG_5,MM_OVRD_GUAR_DT_6,MM_OVRD_TAG_6,MM_LANG_OF_CHOICE,MM_LANG_DIALECT,MM_USE_LANG_OF_CHOICE,MM_DESIGNEE_WAIVER_IND,MM_AUTO_SB_ENROLL_IND,MM_STIMULUS_SUBSIDY_IND)
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);</stringProp>
+              <stringProp name="queryArguments">${HDR_1},${HDR_2},${HDR_DT},${HDR_TM},${HDR_SOR},${HDR_SEG},${HDR_OPR},${HDR_IND},${MM_CERT_NO},${MM_AUDIT_TRAIL_DT},${MM_AUDIT_TRAIL_TM},${MM_NO_SEGS_IN_CERT},${MM_PURGE_DT},${MM_NSF_ACCUMULATOR},${MM_MKT_IND},${MM_CERT_STAT_CD},${MM_CERT_INDICATOR},${MM_LANG_IND},${MM_MGMT_AREA},${MM_ADDR_CHANGE_IND},${MM_FILLER1},${MM_RATE_OED_MED},${MM_RATE_OED_DENT},${MM_RATE_OED_LIFE},${MM_OVRD_GUAR_DT_1},${MM_OVRD_TAG_1},${MM_OVRD_GUAR_DT_2},${MM_OVRD_TAG_2},${MM_OVRD_GUAR_DT_3},${MM_OVRD_TAG_3},${MM_OVRD_GUAR_DT_4},${MM_OVRD_TAG_4},${MM_OVRD_GUAR_DT_5},${MM_OVRD_TAG_5},${MM_OVRD_GUAR_DT_6},${MM_OVRD_TAG_6},${MM_LANG_OF_CHOICE},${MM_LANG_DIALECT},${MM_USE_LANG_OF_CHOICE},${MM_DESIGNEE_WAIVER_IND},${MM_AUTO_SB_ENROLL_IND},${MM_STIMULUS_SUBSIDY_IND}</stringProp>
+              <stringProp name="queryArgumentsTypes">varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Prepared Update Statement</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Extract Data Cleanup Layer for MMMEMBR" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Cleanup MMMEMBR table Data" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">DELETE * FROM RAW_MMMEMBR;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MMMEMBR Extract Parsing Layer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Loop" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="false">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">c1</stringProp>
+            <stringProp name="CounterConfig.format">0000</stringProp>
+            <boolProp name="CounterConfig.per_user">true</boolProp>
+            <boolProp name="CounterConfig.reset_on_tg_iteration">true</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config" enabled="true">
+            <stringProp name="filename">${base_data_folder}\MMMEMBR.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_MEMBER_CD,MM_FIRST_NAME,MM_MIDDLE_INIT,MM_BIRTH_DT,MM_MEMBER_EFF_DT,MM_DISABILITY_CD,MM_HEALTH_STAT_IND,MM_LIST_IND,MM_PREX_RCNT_T_IND,MM_STATUS_CD,MM_HMO_PATIENT_NO,MM_CRTIFICATN_CD,MM_CRTIFICATN_DT,MM_MICROFILM_NO,MM_ORIG_MEM_EFF_DT,MM_CURR_MEM_BEG_DT,MM_MEMB_PURGE_DT,MM_COB_IND,MM_VISION_IND,MM_NCS_SUB_ID_SUFFIX,MM_MICROFILM_NO_2,MM_MICROFILM_NO_3,MM_MEDICARE_ID,MM_AIM_BIRTH_LBS,MM_AIM_BIRTH_OZS,MM_MEMBER_HIB,MM_MEMB_SSN,MM_MEMB_ADD_PROC_DT,MM_MEMB_PARTNER_IND,MM_MEMB_MEDICARE_ELIG_IND,MM_PRIOR_CARRIER_CODE,MM_PED_DATE,MM_CHIP_IND,MM_MEDCR_PRIME_OVR,MM_EM_IA_IND,MM_ALTADR_IND,MM_HRC_IND,MM_XFER_CARR_CDE,MM_XFER_CARR_DTE,MM_PTIME_IND,MM_SNSL_IND,MM_HSA_IND,MM_PRIM_PYR_IND,MM_LATE_ENRL_IND,MM_CPT_NBR,MM_VLFE_TYPE,MM_VLFE_VOL,MM_VLFE_SALARY_FACTOR,MM_VLFE_ADND_IND,MM_VLFE_UW_NBR,MM_RATING_TIER,MM_TIER_EFF_DT,MM_CDHP_IND,MM_EOBOPT_IND,MM_SEQ_NO,MM_WRTN_LANG_CODE,MM_SPKN_LANG_CODE,MM_RACE,MM_ETHNICITY,MM_MBR_SPECIAL_PROCESS_IND,MM_ETHN_CD</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="File to DB Conversion - RAW_MMMEMBR Record" enabled="true">
+              <stringProp name="dataSource">src</stringProp>
+              <stringProp name="query">INSERT INTO RAW_MMMEMBR (HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_MEMBER_CD,MM_FIRST_NAME,MM_MIDDLE_INIT,MM_BIRTH_DT,MM_MEMBER_EFF_DT,MM_DISABILITY_CD,MM_HEALTH_STAT_IND,MM_LIST_IND,MM_PREX_RCNT_T_IND,MM_STATUS_CD,MM_HMO_PATIENT_NO,MM_CRTIFICATN_CD,MM_CRTIFICATN_DT,MM_MICROFILM_NO,MM_ORIG_MEM_EFF_DT,MM_CURR_MEM_BEG_DT,MM_MEMB_PURGE_DT,MM_COB_IND,MM_VISION_IND,MM_NCS_SUB_ID_SUFFIX,MM_MICROFILM_NO_2,MM_MICROFILM_NO_3,MM_MEDICARE_ID,MM_AIM_BIRTH_LBS,MM_AIM_BIRTH_OZS,MM_MEMBER_HIB,MM_MEMB_SSN,MM_MEMB_ADD_PROC_DT,MM_MEMB_PARTNER_IND,MM_MEMB_MEDICARE_ELIG_IND,MM_PRIOR_CARRIER_CODE,MM_PED_DATE,MM_CHIP_IND,MM_MEDCR_PRIME_OVR,MM_EM_IA_IND,MM_ALTADR_IND,MM_HRC_IND,MM_XFER_CARR_CDE,MM_XFER_CARR_DTE,MM_PTIME_IND,MM_SNSL_IND,MM_HSA_IND,MM_PRIM_PYR_IND,MM_LATE_ENRL_IND,MM_CPT_NBR,MM_VLFE_TYPE,MM_VLFE_VOL,MM_VLFE_SALARY_FACTOR,MM_VLFE_ADND_IND,MM_VLFE_UW_NBR,MM_RATING_TIER,MM_TIER_EFF_DT,MM_CDHP_IND,MM_EOBOPT_IND,MM_SEQ_NO,MM_WRTN_LANG_CODE,MM_SPKN_LANG_CODE,MM_RACE,MM_ETHNICITY,MM_MBR_SPECIAL_PROCESS_IND,MM_ETHN_CD)
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);</stringProp>
+              <stringProp name="queryArguments">${HDR_1},${HDR_2},${HDR_DT},${HDR_TM},${HDR_SOR},${HDR_SEG},${HDR_OPR},${HDR_IND},${MM_CERT_NO},${MM_GROUP_NO},${MM_CONT_CD},${MM_CONT_TYPE},${MM_LIST_BILL_NO},${MM_MEMBER_CD},${MM_FIRST_NAME},${MM_MIDDLE_INIT},${MM_BIRTH_DT},${MM_MEMBER_EFF_DT},${MM_DISABILITY_CD},${MM_HEALTH_STAT_IND},${MM_LIST_IND},${MM_PREX_RCNT_T_IND},${MM_STATUS_CD},${MM_HMO_PATIENT_NO},${MM_CRTIFICATN_CD},${MM_CRTIFICATN_DT},${MM_MICROFILM_NO},${MM_ORIG_MEM_EFF_DT},${MM_CURR_MEM_BEG_DT},${MM_MEMB_PURGE_DT},${MM_COB_IND},${MM_VISION_IND},${MM_NCS_SUB_ID_SUFFIX},${MM_MICROFILM_NO_2},${MM_MICROFILM_NO_3},${MM_MEDICARE_ID},${MM_AIM_BIRTH_LBS},${MM_AIM_BIRTH_OZS},${MM_MEMBER_HIB},${MM_MEMB_SSN},${MM_MEMB_ADD_PROC_DT},${MM_MEMB_PARTNER_IND},${MM_MEMB_MEDICARE_ELIG_IND},${MM_PRIOR_CARRIER_CODE},${MM_PED_DATE},${MM_CHIP_IND},${MM_MEDCR_PRIME_OVR},${MM_EM_IA_IND},${MM_ALTADR_IND},${MM_HRC_IND},${MM_XFER_CARR_CDE},${MM_XFER_CARR_DTE},${MM_PTIME_IND},${MM_SNSL_IND},${MM_HSA_IND},${MM_PRIM_PYR_IND},${MM_LATE_ENRL_IND},${MM_CPT_NBR},${MM_VLFE_TYPE},${MM_VLFE_VOL},${MM_VLFE_SALARY_FACTOR},${MM_VLFE_ADND_IND},${MM_VLFE_UW_NBR},${MM_RATING_TIER},${MM_TIER_EFF_DT},${MM_CDHP_IND},${MM_EOBOPT_IND},${MM_SEQ_NO},${MM_WRTN_LANG_CODE},${MM_SPKN_LANG_CODE},${MM_RACE},${MM_ETHNICITY},${MM_MBR_SPECIAL_PROCESS_IND},${MM_ETHN_CD}</stringProp>
+              <stringProp name="queryArgumentsTypes">varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Prepared Update Statement</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Extract Data Cleanup Layer for MMCANCL" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Cleanup MMCANCL table Data" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">DELETE * FROM RAW_MMCANCL;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MMCANCL Extract Parsing Layer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Loop" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="false">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">c1</stringProp>
+            <stringProp name="CounterConfig.format">0000</stringProp>
+            <boolProp name="CounterConfig.per_user">true</boolProp>
+            <boolProp name="CounterConfig.reset_on_tg_iteration">true</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config" enabled="true">
+            <stringProp name="filename">${base_data_folder}\MMCANCL.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_MEMBER_CD,MM_MEM_CAN_EFF_DT,MM_MEM_CAN_RSN_CD,MM_MEM_CAN_PROC_DT,MM_PRE_STATUS_CD</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="File to DB Conversion - RAW_MMCANCL Record" enabled="true">
+              <stringProp name="dataSource">src</stringProp>
+              <stringProp name="query">INSERT INTO RAW_MMCANCL (HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_MEMBER_CD,MM_MEM_CAN_EFF_DT,MM_MEM_CAN_RSN_CD,MM_MEM_CAN_PROC_DT,MM_PRE_STATUS_CD)
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</stringProp>
+              <stringProp name="queryArguments">${HDR_1},${HDR_2},${HDR_DT},${HDR_TM},${HDR_SOR},${HDR_SEG},${HDR_OPR},${HDR_IND},${MM_CERT_NO},${MM_GROUP_NO},${MM_CONT_CD},${MM_CONT_TYPE},${MM_LIST_BILL_NO},${MM_MEMBER_CD},${MM_MEM_CAN_EFF_DT},${MM_MEM_CAN_RSN_CD},${MM_MEM_CAN_PROC_DT},${MM_PRE_STATUS_CD}</stringProp>
+              <stringProp name="queryArgumentsTypes">varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Prepared Update Statement</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Extract Data Cleanup Layer for MMCONT" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Cleanup MMCONT table Data" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">DELETE * FROM RAW_MMCONT;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MMCONT Extract Parsing Layer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Loop" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="false">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">c1</stringProp>
+            <stringProp name="CounterConfig.format">0000</stringProp>
+            <boolProp name="CounterConfig.per_user">true</boolProp>
+            <boolProp name="CounterConfig.reset_on_tg_iteration">true</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config" enabled="true">
+            <stringProp name="filename">${base_data_folder}\MMCONT.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_CONT_EFF_DT,MM_CONT_STAT_CD,MM_CONT_ADD_PROC_DT,MM_CONT_PAID_TO_DT,MM_CONT_BILL_FREQ_CD,MM_OK_OB_CD,MM_OK_OB_DT,MM_CONT_MKT_IND,MM_CONT_ROLL_IND,MM_CONT_PURGE_DT,MM_NO_COVERED,MM_ORIG_CONT_EFF_DT,MM_HOLD_BILL_IND,MM_SUB_DEP_65_DT,MM_OVERAGE_DEP_DT,MM_CURR_CONT_BEG_DT,MM_STAT_WHEN_CANCELED,MM_ISSUE_DT,MM_LIST_BILL_NO,MM_NEW_AGE_CAT_DT,MM_COBRA_END_DT,MM_TEMP_MED_IND,MM_FACILITY_NO,MM_LFE_CLASS_TP,MM_LFE_VOL_EFF_DT,MM_LFE_BENE_MICROFILM,MM_LFE_WVR_PRM_BEG_DT,MM_LFE_AD_N_D_END_DT,MM_LFE_ASSIGNMT_IND,MM_LFE_OWNER_LNAME,MM_LFE_OWNER_FNAME,MM_LFE_OWNER_MINIT,MM_CONT_AAR_ROLLOVER,MM_CONT_HIRE_DATE,MM_CONT_CALCOBRA_IND,MM_CONT_SALARY,MM_CALCOBRA_BEGIN_DATE,MM_CALCOBRA_QUAL_RSN_CD,MM_LFE_SALARY_FACTOR,MM_LFE_MC_VOLUME_AMT,MM_DEP_LFE_TYPE,MM_MIGR_IND,MM_SHORT_TERM_END_DT,MM_ACQUISITION_SOURCE,MM_LFE_FACE_VOLUME_AMT,MM_UNDERWRITER_NO,MM_LFE_FACE_EFF_DT,MM_LFE_FACE_PREV_VOL,MM_LFE_FACE_PVOL_ENDDT,MM_LFE_FACE_OLD_VOL,MM_LFE_FACE_OLD_ENDDT,MM_ID_DESIGN_IND,MM_NEW_PULL_INDICATOR,MM_PORTABL_IND,MM_PORTABL_END_DT,MM_VOL_LIFE_IND,MM_CALCOBRA_PRINT,MM_WKLY_HRS,MM_CONT_ANNIV_MM,MM_CONT_ANNIV_DD,MM_PROMO1_CD,MM_PROMO1_EFF_DT,MM_PROMO2_CD,MM_PROMO2_EFF_DT,MM_PROMO3_CD,MM_PROMO3_EFF_DT,MM_PROMO4_CD,MM_PROMO4_EFF_DT,MM_TIC_INDICATOR,MM_MEU_STATUS,MM_CONT_SPECIAL_PROCESS_IND,MM_MONTHS_TO_BILL,MM_HOUSE_HLD_IND,MM_CC_ANNUAL_DISC,MM_CONT_PAPER_BILL_IND,MM_CONT_XCHG_IND,MM_CONT_XCHG_TYP,MM_BYPASS_DELQ,MM_BYPASS_CANCEL,MM_CONT_ECERT,MM_CONT_E4G_IND,MM_RENEWAL_IND,MM_CONT_PROG,MM_CONT_OPR_ID,MM_CONT_PROC_DT,MM_CONT_PROC_TIME</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="File to DB Conversion - RAW_MMCONT Record" enabled="true">
+              <stringProp name="dataSource">src</stringProp>
+              <stringProp name="query">INSERT INTO RAW_MMCONT (HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_CONT_EFF_DT,MM_CONT_STAT_CD,MM_CONT_ADD_PROC_DT,MM_CONT_PAID_TO_DT,MM_CONT_BILL_FREQ_CD,MM_OK_OB_CD,MM_OK_OB_DT,MM_CONT_MKT_IND,MM_CONT_ROLL_IND,MM_CONT_PURGE_DT,MM_NO_COVERED,MM_ORIG_CONT_EFF_DT,MM_HOLD_BILL_IND,MM_SUB_DEP_65_DT,MM_OVERAGE_DEP_DT,MM_CURR_CONT_BEG_DT,MM_STAT_WHEN_CANCELED,MM_ISSUE_DT,MM_LIST_BILL_NO,MM_NEW_AGE_CAT_DT,MM_COBRA_END_DT,MM_TEMP_MED_IND,MM_FACILITY_NO,MM_LFE_CLASS_TP,MM_LFE_VOL_EFF_DT,MM_LFE_BENE_MICROFILM,MM_LFE_WVR_PRM_BEG_DT,MM_LFE_AD_N_D_END_DT,MM_LFE_ASSIGNMT_IND,MM_LFE_OWNER_LNAME,MM_LFE_OWNER_FNAME,MM_LFE_OWNER_MINIT,MM_CONT_AAR_ROLLOVER,MM_CONT_HIRE_DATE,MM_CONT_CALCOBRA_IND,MM_CONT_SALARY,MM_CALCOBRA_BEGIN_DATE,MM_CALCOBRA_QUAL_RSN_CD,MM_LFE_SALARY_FACTOR,MM_LFE_MC_VOLUME_AMT,MM_DEP_LFE_TYPE,MM_MIGR_IND,MM_SHORT_TERM_END_DT,MM_ACQUISITION_SOURCE,MM_LFE_FACE_VOLUME_AMT,MM_UNDERWRITER_NO,MM_LFE_FACE_EFF_DT,MM_LFE_FACE_PREV_VOL,MM_LFE_FACE_PVOL_ENDDT,MM_LFE_FACE_OLD_VOL,MM_LFE_FACE_OLD_ENDDT,MM_ID_DESIGN_IND,MM_NEW_PULL_INDICATOR,MM_PORTABL_IND,MM_PORTABL_END_DT,MM_VOL_LIFE_IND,MM_CALCOBRA_PRINT,MM_WKLY_HRS,MM_CONT_ANNIV_MM,MM_CONT_ANNIV_DD,MM_PROMO1_CD,MM_PROMO1_EFF_DT,MM_PROMO2_CD,MM_PROMO2_EFF_DT,MM_PROMO3_CD,MM_PROMO3_EFF_DT,MM_PROMO4_CD,MM_PROMO4_EFF_DT,MM_TIC_INDICATOR,MM_MEU_STATUS,MM_CONT_SPECIAL_PROCESS_IND,MM_MONTHS_TO_BILL,MM_HOUSE_HLD_IND,MM_CC_ANNUAL_DISC,MM_CONT_PAPER_BILL_IND,MM_CONT_XCHG_IND,MM_CONT_XCHG_TYP,MM_BYPASS_DELQ,MM_BYPASS_CANCEL,MM_CONT_ECERT,MM_CONT_E4G_IND,MM_RENEWAL_IND,MM_CONT_PROG,MM_CONT_OPR_ID,MM_CONT_PROC_DT,MM_CONT_PROC_TIME)
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</stringProp>
+              <stringProp name="queryArguments">${HDR_1},${HDR_2},${HDR_DT},${HDR_TM},${HDR_SOR},${HDR_SEG},${HDR_OPR},${HDR_IND},${MM_CERT_NO},${MM_GROUP_NO},${MM_CONT_CD},${MM_CONT_TYPE},${MM_CONT_EFF_DT},${MM_CONT_STAT_CD},${MM_CONT_ADD_PROC_DT},${MM_CONT_PAID_TO_DT},${MM_CONT_BILL_FREQ_CD},${MM_OK_OB_CD},${MM_OK_OB_DT},${MM_CONT_MKT_IND},${MM_CONT_ROLL_IND},${MM_CONT_PURGE_DT},${MM_NO_COVERED},${MM_ORIG_CONT_EFF_DT},${MM_HOLD_BILL_IND},${MM_SUB_DEP_65_DT},${MM_OVERAGE_DEP_DT},${MM_CURR_CONT_BEG_DT},${MM_STAT_WHEN_CANCELED},${MM_ISSUE_DT},${MM_LIST_BILL_NO},${MM_NEW_AGE_CAT_DT},${MM_COBRA_END_DT},${MM_TEMP_MED_IND},${MM_FACILITY_NO},${MM_LFE_CLASS_TP},${MM_LFE_VOL_EFF_DT},${MM_LFE_BENE_MICROFILM},${MM_LFE_WVR_PRM_BEG_DT},${MM_LFE_AD_N_D_END_DT},${MM_LFE_ASSIGNMT_IND},${MM_LFE_OWNER_LNAME},${MM_LFE_OWNER_FNAME},${MM_LFE_OWNER_MINIT},${MM_CONT_AAR_ROLLOVER},${MM_CONT_HIRE_DATE},${MM_CONT_CALCOBRA_IND},${MM_CONT_SALARY},${MM_CALCOBRA_BEGIN_DATE},${MM_CALCOBRA_QUAL_RSN_CD},${MM_LFE_SALARY_FACTOR},${MM_LFE_MC_VOLUME_AMT},${MM_DEP_LFE_TYPE},${MM_MIGR_IND},${MM_SHORT_TERM_END_DT},${MM_ACQUISITION_SOURCE},${MM_LFE_FACE_VOLUME_AMT},${MM_UNDERWRITER_NO},${MM_LFE_FACE_EFF_DT},${MM_LFE_FACE_PREV_VOL},${MM_LFE_FACE_PVOL_ENDDT},${MM_LFE_FACE_OLD_VOL},${MM_LFE_FACE_OLD_ENDDT},${MM_ID_DESIGN_IND},${MM_NEW_PULL_INDICATOR},${MM_PORTABL_IND},${MM_PORTABL_END_DT},${MM_VOL_LIFE_IND},${MM_CALCOBRA_PRINT},${MM_WKLY_HRS},${MM_CONT_ANNIV_MM},${MM_CONT_ANNIV_DD},${MM_PROMO1_CD},${MM_PROMO1_EFF_DT},${MM_PROMO2_CD},${MM_PROMO2_EFF_DT},${MM_PROMO3_CD},${MM_PROMO3_EFF_DT},${MM_PROMO4_CD},${MM_PROMO4_EFF_DT},${MM_TIC_INDICATOR},${MM_MEU_STATUS},${MM_CONT_SPECIAL_PROCESS_IND},${MM_MONTHS_TO_BILL},${MM_HOUSE_HLD_IND},${MM_CC_ANNUAL_DISC},${MM_CONT_PAPER_BILL_IND},${MM_CONT_XCHG_IND},${MM_CONT_XCHG_TYP},${MM_BYPASS_DELQ},${MM_BYPASS_CANCEL},${MM_CONT_ECERT},${MM_CONT_E4G_IND},${MM_RENEWAL_IND},${MM_CONT_PROG},${MM_CONT_OPR_ID},${MM_CONT_PROC_DT},${MM_CONT_PROC_TIME}</stringProp>
+              <stringProp name="queryArgumentsTypes">varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Prepared Update Statement</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Extract Data Cleanup Layer for MMCTCAN" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Cleanup MMCTCAN table Data" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">DELETE * FROM RAW_MMCTCAN;</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="MMCTCAN Extract Parsing Layer" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <WhileController guiclass="WhileControllerGui" testclass="WhileController" testname="While Loop" enabled="true">
+          <stringProp name="WhileController.condition">${__javaScript(&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;,)}</stringProp>
+        </WhileController>
+        <hashTree>
+          <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="Counter" enabled="false">
+            <stringProp name="CounterConfig.start">1</stringProp>
+            <stringProp name="CounterConfig.end"></stringProp>
+            <stringProp name="CounterConfig.incr">1</stringProp>
+            <stringProp name="CounterConfig.name">c1</stringProp>
+            <stringProp name="CounterConfig.format">0000</stringProp>
+            <boolProp name="CounterConfig.per_user">true</boolProp>
+            <boolProp name="CounterConfig.reset_on_tg_iteration">true</boolProp>
+          </CounterConfig>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="Extract SIT File Path Config" enabled="true">
+            <stringProp name="filename">${base_data_folder}\MMCTCAN.txt</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_CONT_CAN_EFF_DT,MM_CONT_CAN_RSN_CD,MM_LOA_BEN_END_DT,MM_CONT_CAN_PROC_DT,MM_CONT_PRE_STAT_CD</stringProp>
+            <stringProp name="delimiter">|</stringProp>
+            <boolProp name="quotedData">true</boolProp>
+            <boolProp name="recycle">false</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.thread</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+            <stringProp name="IfController.condition">&quot;${HDR_1}&quot; != &quot;&lt;EOF&gt;&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="File to DB Conversion - RAW_MMCTCAN Record" enabled="true">
+              <stringProp name="dataSource">src</stringProp>
+              <stringProp name="query">INSERT INTO RAW_MMCTCAN (HDR_1,HDR_2,HDR_DT,HDR_TM,HDR_SOR,HDR_SEG,HDR_OPR,HDR_IND,MM_CERT_NO,MM_GROUP_NO,MM_CONT_CD,MM_CONT_TYPE,MM_LIST_BILL_NO,MM_CONT_CAN_EFF_DT,MM_CONT_CAN_RSN_CD,MM_LOA_BEN_END_DT,MM_CONT_CAN_PROC_DT,MM_CONT_PRE_STAT_CD)
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)</stringProp>
+              <stringProp name="queryArguments">${HDR_1},${HDR_2},${HDR_DT},${HDR_TM},${HDR_SOR},${HDR_SEG},${HDR_OPR},${HDR_IND},${MM_CERT_NO},${MM_GROUP_NO},${MM_CONT_CD},${MM_CONT_TYPE},${MM_LIST_BILL_NO},${MM_CONT_CAN_EFF_DT},${MM_CONT_CAN_RSN_CD},${MM_LOA_BEN_END_DT},${MM_CONT_CAN_PROC_DT},${MM_CONT_PRE_STAT_CD}</stringProp>
+              <stringProp name="queryArgumentsTypes">varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar,varchar</stringProp>
+              <stringProp name="queryTimeout"></stringProp>
+              <stringProp name="queryType">Prepared Update Statement</stringProp>
+              <stringProp name="resultVariable"></stringProp>
+              <stringProp name="variableNames"></stringProp>
+              <stringProp name="resultSetHandler">Store as Object</stringProp>
+            </JDBCSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS Comparison Threads Below --------------------------------------------------------------------------------------" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree/>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - MBR table: Simple transformation" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW MBR SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT 
+MBR.MM_CERT_NO as SBSCRBR_ID,
+&apos;STAR&apos; as SOR_CD,
+TRIM(MM_HCID) AS HCID,
+iif( MBR.MM_MEMB_SSN =&apos;&apos; , &apos;null&apos; , trim(MBR.MM_MEMB_SSN) ) as SSN,
+MBR.MM_FIRST_NAME as FRST_NM,
+iif( MBR.MM_MIDDLE_INIT =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MIDDLE_INIT) ) as MID_NM,
+--iif( LN.MM_LAST_NAME =&apos;&apos; , &apos; &apos; , trim(LN.MM_LAST_NAME) ) as LAST_NM,
+&apos;null&apos; as PRFX_CD,
+--&apos;null&apos; as PRFX_TRNSLTN_RCRD_ID,
+&apos;NULL&apos; AS SFX_CD,
+&apos;NULL&apos; AS MRTL_STTS_CD,
+iif( MBR.MM_ETHNICITY =&apos;&apos; , &apos;null&apos; , trim(MBR.MM_ETHNICITY) ) as ETHNCTY_CD,
+--iif( MBR.MM_RACE =&apos;&apos; , &apos;null&apos; , trim(MBR.MM_RACE) ) as RACE_CD,
+iif( MBR.MM_BIRTH_DT =&apos;&apos; , &apos; &apos; , trim(MBR.MM_BIRTH_DT) ) as BRTH_DT,
+iif(MBR.MM_MEMBER_CD in(&apos;10&apos;,&apos;20&apos;) , &apos;SCRBR&apos; ,iif( MBR.MM_MEMBER_CD in(&apos;30&apos;,&apos;40&apos;) , &apos;SPOUS&apos; , &apos;CHILD&apos; )) as MBR_RLTNSHP_CD,
+iif(MBR.MM_MEMBER_CD in(&apos;10&apos;,&apos;30&apos;,&apos;50&apos;) , &apos;M&apos; ,&apos;F&apos;) as GNDR_CD,
+TRIM(mbr.MM_RATING_TIER) AS TBACO_USE_IND,
+&apos;NULL&apos; AS DTH_DT,
+--iif( CAN.MM_MEM_CAN_RSN_CD =&apos;&apos; or  CAN.MM_MEM_CAN_RSN_CD is NULL, &apos;NULL&apos; , trim(CAN.MM_MEM_CAN_RSN_CD) ) as MBR_TRMNTN_RSN_CD,
+&apos;NULL&apos; AS MBR_ORGNL_EFCTV_DT,
+&apos;NULL&apos; AS HIPAA_VSBLTY_IND,
+&apos;NULL&apos; as ELCTRNC_ENRLMNT_IND
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+left outer join RAW_MMLTNAM LN
+on MBR.MM_CERT_NO=LN.MM_CERT_NO
+and MBR.MM_GROUP_NO=LN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=LN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=LN.MM_MEMBER_CD
+--where cert.MM_CERT_NO=&apos;215477878&apos;
+order by MBR.MM_CERT_NO,MBR.MM_FIRST_NAME</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="EHUB SDS MBR SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select distinct mbr.sbscrbr_id, 
+trim(mbr.SOR_CD) as SOR_CD,
+trim(mbr.HCID) as HCID,
+trim(case when mbr.SSN is null then &apos;null&apos; else mbr.ssn end) as SSN,
+mbr.frst_nm, 
+case when mbr.mid_nm is null then &apos; &apos; else mbr.mid_nm end as mid_nm, 
+--mbr.last_nm, 
+trim(case when mbr.PRFX_CD is null then &apos;null&apos; else mbr.PRFX_CD end) as PRFX_CD,
+--trim(case when TRIM(mbr.PRFX_TRNSLTN_RCRD_ID) is null then &apos;null&apos; else TRIM(mbr.PRFX_TRNSLTN_RCRD_ID) end) as PRFX_TRNSLTN_RCRD_ID,
+trim(case when mbr.SFX_CD is null then &apos;NULL&apos; else mbr.SFX_CD end) as SFX_CD,
+trim(case when mbr.MRTL_STTS_CD is null then &apos;NULL&apos; else mbr.MRTL_STTS_CD end) as MRTL_STTS_CD,
+trim(case when eth.src_cd_val_txt is null then &apos;NULL&apos; else eth.src_cd_val_txt end) as ETHNCTY_CD,
+--trim(case when RAC.src_cd_val_txt is null then &apos;NULL&apos; else RAC.src_cd_val_txt end) as RACE_CD,
+to_char(mbr.brth_dt,&apos;YYYYMMDD&apos;) as brth_dt,
+trim(mcn.mbr_rltnshp_cd) as mbr_rltnshp_cd,
+trim(mbr.gndr_cd) as gndr_cd,
+trim(case when mbr.tbaco_use_ind is null then &apos;NULL&apos; else mbr.tbaco_use_ind end) as tbaco_use_ind,
+trim(case when TRIM(mbr.DTH_DT) is null then &apos;NULL&apos; else TRIM(mbr.DTH_DT) end) as DTH_DT,
+--trim(case when RSN.src_cd_val_txt is null then &apos;NULL&apos; else RSN.src_cd_val_txt end) as MBR_TRMNTN_RSN_CD,
+trim(case when TRIM(mbr.MBR_ORGNL_EFCTV_DT) is null then &apos;NULL&apos; else TRIM(mbr.MBR_ORGNL_EFCTV_DT) end) as MBR_ORGNL_EFCTV_DT,
+trim(case when TRIM(mbr.HIPAA_VSBLTY_IND) is null then &apos;NULL&apos; else TRIM(mbr.HIPAA_VSBLTY_IND) end) as HIPAA_VSBLTY_IND,
+trim(case when TRIM(mbr.ELCTRNC_ENRLMNT_IND) is null then &apos;NULL&apos; else TRIM(mbr.ELCTRNC_ENRLMNT_IND) end) as ELCTRNC_ENRLMNT_IND
+from ehub_mbr_sds.ehub_sds_mbr mbr
+left outer join ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN ETH
+on trim(MBR.ETHNCTY_CD)=trim(ETH.TRGT_CD_VAL_TXT)
+AND eth.clmn_physcl_nm = &apos;ETHNCTY_CD&apos; 
+and eth.sor_cd=&apos;STAR&apos; AND eth.SRC_CD_ID = &apos;3270&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RAC
+on trim(MBR.RACE_CD)=trim(RAC.TRGT_CD_VAL_TXT)
+AND RAC.clmn_physcl_nm = &apos;RACE_CD&apos; 
+and RAC.sor_cd=&apos;STAR&apos; AND RAC.SRC_CD_ID = &apos;3280&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RSN
+on trim(MBR.MBR_TRMNTN_RSN_CD)=trim(RSN.TRGT_CD_VAL_TXT)
+AND RSN.clmn_physcl_nm = &apos;MBR_ENRLMNT_TRMNTN_RSN_CD&apos; 
+and RSN.sor_cd=&apos;STAR&apos; AND RSN.SRC_CD_ID = &apos;8147&apos;
+where mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+order by  mbr.sbscrbr_id, mbr.frst_nm</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW minus SDS-Simple Transformation" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+//Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+//Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+//Set&lt;String&gt; src2 = srcSetBkp; // take backup
+//Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+//trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Comparison Log" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">\\kyshared\EPOST\QA\SIT\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS\bin\RAW.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - MBR table: Last Name when MMLTNAM available" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW MBR SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT 
+MBR.MM_CERT_NO as SBSCRBR_ID,
+&apos;STAR&apos; as SOR_CD,
+TRIM(MM_HCID) AS HCID,
+iif( MBR.MM_MEMB_SSN =&apos;&apos; , &apos;null&apos; , trim(MBR.MM_MEMB_SSN) ) as SSN,
+MBR.MM_FIRST_NAME as FRST_NM,
+iif( MBR.MM_MIDDLE_INIT =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MIDDLE_INIT) ) as MID_NM,
+iif( LN.MM_LAST_NAME =&apos;&apos; , &apos; &apos; , trim(LN.MM_LAST_NAME) ) as LAST_NM,
+iif( MBR.MM_BIRTH_DT =&apos;&apos; , &apos; &apos; , trim(MBR.MM_BIRTH_DT) ) as BRTH_DT,
+iif(MBR.MM_MEMBER_CD in(&apos;10&apos;,&apos;20&apos;) , &apos;SCRBR&apos; ,iif( MBR.MM_MEMBER_CD in(&apos;30&apos;,&apos;40&apos;) , &apos;SPOUS&apos; , &apos;CHILD&apos; )) as MBR_RLTNSHP_CD,
+iif(MBR.MM_MEMBER_CD in(&apos;10&apos;,&apos;30&apos;,&apos;50&apos;) , &apos;M&apos; ,&apos;F&apos;) as GNDR_CD
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+inner join RAW_MMLTNAM LN
+on MBR.MM_CERT_NO=LN.MM_CERT_NO
+and MBR.MM_GROUP_NO=LN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=LN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=LN.MM_MEMBER_CD
+--where cert.MM_CERT_NO=&apos;215477878&apos;
+order by MBR.MM_CERT_NO,MBR.MM_FIRST_NAME</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="EHUB SDS MBR SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select distinct mbr.sbscrbr_id, 
+trim(mbr.SOR_CD) as SOR_CD,
+trim(mbr.HCID) as HCID,
+trim(case when mbr.SSN is null then &apos;null&apos; else mbr.ssn end) as SSN,
+mbr.frst_nm, 
+case when mbr.mid_nm is null then &apos; &apos; else mbr.mid_nm end as mid_nm, 
+mbr.last_nm,
+to_char(mbr.brth_dt,&apos;YYYYMMDD&apos;) as brth_dt,
+trim(mcn.mbr_rltnshp_cd) as mbr_rltnshp_cd,
+trim(mbr.gndr_cd) as gndr_cd
+from ehub_mbr_sds.ehub_sds_mbr mbr
+left outer join ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN ETH
+on trim(MBR.ETHNCTY_CD)=trim(ETH.TRGT_CD_VAL_TXT)
+AND eth.clmn_physcl_nm = &apos;ETHNCTY_CD&apos; 
+and eth.sor_cd=&apos;STAR&apos; AND eth.SRC_CD_ID = &apos;3270&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RAC
+on trim(MBR.RACE_CD)=trim(RAC.TRGT_CD_VAL_TXT)
+AND RAC.clmn_physcl_nm = &apos;RACE_CD&apos; 
+and RAC.sor_cd=&apos;STAR&apos; AND RAC.SRC_CD_ID = &apos;3280&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RSN
+on trim(MBR.MBR_TRMNTN_RSN_CD)=trim(RSN.TRGT_CD_VAL_TXT)
+AND RSN.clmn_physcl_nm = &apos;MBR_ENRLMNT_TRMNTN_RSN_CD&apos; 
+and RSN.sor_cd=&apos;STAR&apos; AND RSN.SRC_CD_ID = &apos;8147&apos;
+where mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+order by  mbr.sbscrbr_id, mbr.frst_nm</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW minus SDS-LAST_NM Normal" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+//Set&lt;String&gt; src2 = srcSetBkp; // take backup
+//Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+//trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Comparison Log" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">\\kyshared\EPOST\QA\SIT\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS\bin\RAW.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - MBR table: Last Name when MMLTNAM not available" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW MBR SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT 
+MBR.MM_CERT_NO as SBSCRBR_ID,
+&apos;STAR&apos; as SOR_CD,
+TRIM(MM_HCID) AS HCID,
+iif( MBR.MM_MEMB_SSN =&apos;&apos; , &apos;null&apos; , trim(MBR.MM_MEMB_SSN) ) as SSN,
+MBR.MM_FIRST_NAME as FRST_NM,
+iif( MBR.MM_MIDDLE_INIT =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MIDDLE_INIT) ) as MID_NM,
+iif( LN_S.MM_LAST_NAME is NULL or LN_S.MM_LAST_NAME =&apos;&apos; , &apos; &apos; , trim(LN_S.MM_LAST_NAME) ) as LAST_NM,
+iif( MBR.MM_BIRTH_DT =&apos;&apos; , &apos; &apos; , trim(MBR.MM_BIRTH_DT) ) as BRTH_DT,
+iif(MBR.MM_MEMBER_CD in(&apos;10&apos;,&apos;20&apos;) , &apos;SCRBR&apos; ,iif( MBR.MM_MEMBER_CD in(&apos;30&apos;,&apos;40&apos;) , &apos;SPOUS&apos; , &apos;CHILD&apos; )) as MBR_RLTNSHP_CD,
+iif(MBR.MM_MEMBER_CD in(&apos;10&apos;,&apos;30&apos;,&apos;50&apos;) , &apos;M&apos; ,&apos;F&apos;) as GNDR_CD
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+left outer join RAW_MMLTNAM LN_D
+on MBR.MM_CERT_NO=LN_D.MM_CERT_NO
+and MBR.MM_GROUP_NO=LN_D.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=LN_D.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=LN_D.MM_MEMBER_CD
+left outer join RAW_MMLTNAM LN_S
+on MBR.MM_CERT_NO=LN_S.MM_CERT_NO
+--and MBR.MM_GROUP_NO=LN_S.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=LN_S.MM_CONT_TYPE
+--and MBR.MM_MEMBER_CD=LN.MM_MEMBER_CD
+--where cert.MM_CERT_NO=&apos;215477878&apos;
+Where LN_D.MM_LAST_NAME is NULL or LN_D.MM_LAST_NAME =&apos;&apos;
+order by MBR.MM_CERT_NO,MBR.MM_FIRST_NAME</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="EHUB SDS MBR SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select distinct mbr.sbscrbr_id, 
+trim(mbr.SOR_CD) as SOR_CD,
+trim(mbr.HCID) as HCID,
+trim(case when mbr.SSN is null then &apos;null&apos; else mbr.ssn end) as SSN,
+mbr.frst_nm, 
+case when mbr.mid_nm is null then &apos; &apos; else mbr.mid_nm end as mid_nm, 
+mbr.last_nm,
+to_char(mbr.brth_dt,&apos;YYYYMMDD&apos;) as brth_dt,
+trim(mcn.mbr_rltnshp_cd) as mbr_rltnshp_cd,
+trim(mbr.gndr_cd) as gndr_cd
+from ehub_mbr_sds.ehub_sds_mbr mbr
+left outer join ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN ETH
+on trim(MBR.ETHNCTY_CD)=trim(ETH.TRGT_CD_VAL_TXT)
+AND eth.clmn_physcl_nm = &apos;ETHNCTY_CD&apos; 
+and eth.sor_cd=&apos;STAR&apos; AND eth.SRC_CD_ID = &apos;3270&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RAC
+on trim(MBR.RACE_CD)=trim(RAC.TRGT_CD_VAL_TXT)
+AND RAC.clmn_physcl_nm = &apos;RACE_CD&apos; 
+and RAC.sor_cd=&apos;STAR&apos; AND RAC.SRC_CD_ID = &apos;3280&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RSN
+on trim(MBR.MBR_TRMNTN_RSN_CD)=trim(RSN.TRGT_CD_VAL_TXT)
+AND RSN.clmn_physcl_nm = &apos;MBR_ENRLMNT_TRMNTN_RSN_CD&apos; 
+and RSN.sor_cd=&apos;STAR&apos; AND RSN.SRC_CD_ID = &apos;8147&apos;
+where mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+order by  mbr.sbscrbr_id, mbr.frst_nm</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW minus SDS-LAST_NM NULL" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+//Set&lt;String&gt; src2 = srcSetBkp; // take backup
+//Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+//trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Comparison Log" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>true</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>true</responseData>
+              <samplerData>true</samplerData>
+              <xml>true</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>true</responseHeaders>
+              <requestHeaders>true</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <url>true</url>
+              <fileName>true</fileName>
+              <hostname>true</hostname>
+              <threadCounts>true</threadCounts>
+              <sampleCount>true</sampleCount>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">\\kyshared\EPOST\QA\SIT\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS\bin\RAW.xml</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - MBR_CNTRCT :Straight Move" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+&apos;STAR&apos; as SOR_CD,
+TRIM(MM_HCID) AS HCID,
+TRIM(MBR.MM_CURR_MEM_BEG_DT) as ENRLMNT_EFCTV_DT,
+&apos;NULL&apos; as MBR_CVRG_CNTNUTN_TYPE_CD,
+--&apos;NULL&apos; as EMP_HIRE_DT,
+&apos;NULL&apos; as EMP_RTRMNT_DT,
+&apos;NULL&apos; as MBR_CVRG_CNTNUTN_TYPE_QE_CD,
+&apos;NULL&apos; as MBR_CVRG_CNTNUTN_TYPE_EFCTV_DT,
+&apos;NULL&apos; as MBR_CVRG_CNTNUTN_TYPE_TRMNTN_D,
+&apos;NULL&apos; as ID_CARD_PRNT_LVL_CD,
+&apos;NULL&apos; as ID_CARD_PRNT_LVL_TRNSLTN_RCRD_,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+&apos;NULL&apos; as PCP_ID,
+&apos;NULL&apos; as PCP_SFX_CD,
+&apos;NULL&apos; as PCP_EFCTV_DT,
+&apos;NULL&apos; as PCP_TRMNTN_DT,
+&apos;NULL&apos; as PCP_TRMNTN_RSN_CD,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as NEW_MBR_CD,
+&apos;NULL&apos; as GRAC_PRD_NBR, 
+&apos;NULL&apos; AS MBR_ORGNL_EFCTV_DT, 
+&apos;NULL&apos; as WLCM_PKT_INITD_DT, 
+&apos;NULL&apos; as ID_CARD_MAILD_DT
+
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+left outer join RAW_MMLTNAM LN
+on MBR.MM_CERT_NO=LN.MM_CERT_NO
+and MBR.MM_GROUP_NO=LN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=LN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=LN.MM_MEMBER_CD
+--where cert.MM_CERT_NO=&apos;215477878&apos;
+order by MBR.MM_CERT_NO,MBR.MM_FIRST_NAME</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select distinct mcn.sbscrbr_id, 
+trim(mcn.SOR_CD) as SOR_CD,
+trim(mcn.HCID) as HCID,
+substr(to_char(mcn.enrlmnt_efctv_dt, &apos;YYYYMMDD&apos;),3) as enrlmnt_efctv_dt,
+coalesce(MBR_CVRG_CNTNUTN_TYPE_CD,&apos;NULL&apos;) as MBR_CVRG_CNTNUTN_TYPE_CD,
+--coalesce(trim(EMP_HIRE_DT),&apos;NULL&apos;) as EMP_HIRE_DT,
+coalesce(trim(EMP_RTRMNT_DT),&apos;NULL&apos;) as EMP_RTRMNT_DT,
+coalesce(trim(MBR_CVRG_CNTNUTN_TYPE_QE_CD),&apos;NULL&apos;) as MBR_CVRG_CNTNUTN_TYPE_QE_CD,
+coalesce(trim(MBR_CVRG_CNTNUTN_TYPE_EFCTV_DT),&apos;NULL&apos;) as MBR_CVRG_CNTNUTN_TYPE_EFCTV_DT,
+coalesce(trim(MBR_CVRG_CNTNUTN_TYPE_TRMNTN_D),&apos;NULL&apos;) as MBR_CVRG_CNTNUTN_TYPE_TRMNTN_D,
+coalesce(trim(ID_CARD_PRNT_LVL_CD),&apos;NULL&apos;) as ID_CARD_PRNT_LVL_CD,
+coalesce(trim(ID_CARD_PRNT_LVL_TRNSLTN_RCRD_),&apos;NULL&apos;) as ID_CARD_PRNT_LVL_TRNSLTN_RCRD_,
+coalesce(trim(mcn.MBR_CD),&apos;NULL&apos;) as MBR_CD,
+coalesce(trim(PCP_ID),&apos;NULL&apos;) as PCP_ID,
+coalesce(trim(PCP_SFX_CD),&apos;NULL&apos;) as PCP_SFX_CD,
+coalesce(trim(PCP_EFCTV_DT),&apos;NULL&apos;) as PCP_EFCTV_DT,
+coalesce(trim(PCP_TRMNTN_DT),&apos;NULL&apos;) as PCP_TRMNTN_DT,
+coalesce(trim(PCP_TRMNTN_RSN_CD),&apos;NULL&apos;) as PCP_TRMNTN_RSN_CD,
+coalesce(trim(mcn.NEW_MBR_CD),&apos;NULL&apos;) as NEW_MBR_CD,
+coalesce(trim(mcn.GRAC_PRD_NBR),&apos;NULL&apos;) as GRAC_PRD_NBR,
+coalesce(trim(mcn.MBR_ORGNL_EFCTV_DT),&apos;NULL&apos;) as MBR_ORGNL_EFCTV_DT,
+coalesce(trim(mcn.WLCM_PKT_INITD_DT),&apos;NULL&apos;) as WLCM_PKT_INITD_DT,
+coalesce(trim(mcn.ID_CARD_MAILD_DT),&apos;NULL&apos;) as ID_CARD_MAILD_DT
+from ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn 
+left outer join ehub_mbr_sds.ehub_sds_mbr mbr
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN ETH
+on trim(MBR.ETHNCTY_CD)=trim(ETH.TRGT_CD_VAL_TXT)
+AND eth.clmn_physcl_nm = &apos;ETHNCTY_CD&apos; 
+and eth.sor_cd=&apos;STAR&apos; AND eth.SRC_CD_ID = &apos;3270&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RAC
+on trim(MBR.RACE_CD)=trim(RAC.TRGT_CD_VAL_TXT)
+AND RAC.clmn_physcl_nm = &apos;RACE_CD&apos; 
+and RAC.sor_cd=&apos;STAR&apos; AND RAC.SRC_CD_ID = &apos;3280&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RSN
+on trim(MBR.MBR_TRMNTN_RSN_CD)=trim(RSN.TRGT_CD_VAL_TXT)
+AND RSN.clmn_physcl_nm = &apos;MBR_ENRLMNT_TRMNTN_RSN_CD&apos; 
+and RSN.sor_cd=&apos;STAR&apos; AND RSN.SRC_CD_ID = &apos;8147&apos;
+where mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+order by  mcn.sbscrbr_id</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="MBR CNTRCT RAW minus SDS- Straight Move" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+Set&lt;String&gt; src2 = srcSetBkp; // take backup
+Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - CVRG -Straight Move" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW CVRG SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+CON.MM_CONT_CD as PROD_CD,
+iif( CON.MM_GROUP_NO =&apos;&apos; , &apos; &apos; , trim(CON.MM_GROUP_NO) ) as SUB_GRP_ID,
+trim(case when CAN.MM_CERT_NO is null or CAN.MM_CERT_NO=&apos;&apos; then &apos;ACTV&apos; else &apos;INACTV&apos; end) as CVRG_STTS_CD,
+&apos;NULL&apos; as EXCHNG_IND_CD,
+&apos;NULL&apos; as EXCHNG_IND_TRNSLTN_RCRD_ID,
+&apos;NULL&apos; as RCRD_STTS_CD,
+&apos;NULL&apos; as NO_COB_IND,
+&apos;NULL&apos; as NO_COB_RSN_CD,
+--ALPH_PRFX_ID, comes from IMB.PROD
+iif( con.MM_CURR_CONT_BEG_DT =&apos;&apos; , &apos;NULL&apos; , trim(con.MM_CURR_CONT_BEG_DT) ) as PROD_STRT_DT,
+iif( ct.MM_CONT_CAN_EFF_DT =&apos;&apos; or ct.MM_CONT_CAN_EFF_DT is null , &apos;991231&apos; , trim(ct.MM_CONT_CAN_EFF_DT) ) as PROD_END_DT,
+&apos;NULL&apos; as JAA_IND,
+--FUNDG_TYPE_TRGT_CD_VAL_TXT, llokup value,
+--BNFT_STRT_DT,BNFT_END_DT-- needs to be handled separately
+trim(con.MM_GROUP_NO) as  PROD_GRP_NBR,
+--PROD_SUBTYP_CD--look up value
+--UNDRWRTG_ST_CD, look up value
+--ACCUMR_SRC_CD, look up value
+--PLAN_YEAR_STRT_DT, needs to be handled seprately
+--PLAN_YEAR_END_DT, needs to be handled seprately
+--BNFT_YEAR_TYPE_CD, look up value
+--PROD_TYPE_CD, lookup value,
+trim(con.MM_CONT_PAID_TO_DT) as PAID_TO_DT,
+--MBR_CNTRCT_TYPE_CD, look up
+&apos;NULL&apos; as GRAC_ADJSTD_PAID_TO_DT,
+--&apos;NULL&apos; as GRAC_ADJSTD_TRMNTN_DT, logic not clear,
+--MBU_TYPE_TRGT_CD_VAL_TXT,look up
+--GRAC_PRD_NBR, from mmcontx,
+--UNDRWRTG_ST_NM look up,
+&apos;NULL&apos; as MBR_TRMNTN_RSN_CD,
+&apos;NULL&apos; as MBR_TRMNTN_RSN_TRNSLTN_RCRD_ID,
+&apos;NULL&apos; as ENRLMNT_STTS_CD,
+&apos;NULL&apos; as ENRLMNT_STTS_TRNSLTN_RCRD_ID,
+&apos;NULL&apos; as MBR_RLTNSHP_CD,
+&apos;NULL&apos; as MBR_RLTNSHP_TRNSLTN_RCRD_ID,
+&apos;NULL&apos; as CNCLN_RSN_CD,
+&apos;NULL&apos; as CNCLN_RSN_TRNSLTN_RCRD_ID,
+&apos;NULL&apos; as PKG_CD,
+&apos;NULL&apos; as GRP_TAPE_IND,
+&apos;NULL&apos; as CNTRCT_EXTNT_CD
+
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+inner join RAW_MMCONT con
+ON CERT.MM_CERT_NO=con.MM_CERT_NO
+and MBR.MM_GROUP_NO=con.MM_GROUP_NO
+--and MBR.MM_CONT_TYPE=con.MM_CONT_TYPE
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+LEFT OUTER JOIN RAW_MMCTCAN CT
+ON CERT.MM_CERT_NO=CT.MM_CERT_NO
+and MBR.MM_GROUP_NO=CT.MM_GROUP_NO
+ORDER BY CERT.MM_CERT_NO, MBR.MM_MEMBER_CD,CON.MM_CONT_CD</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS CVRG SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select * from(
+select distinct trim(M.sbscrbr_id) as sbscrbr_id, trim(MC.MBR_CD) as MBR_CD, trim(CV.PROD_CD) as PROD_CD,
+trim(cv.sub_grp_id) as sub_grp_id,
+trim(CVRG_STTS_CD) as CVRG_STTS_CD,
+coalesce(EXCHNG_IND_CD,&apos;NULL&apos;) as EXCHNG_IND_CD,
+coalesce(trim(EXCHNG_IND_TRNSLTN_RCRD_ID),&apos;NULL&apos;) as EXCHNG_IND_TRNSLTN_RCRD_ID,
+coalesce(trim(cv.RCRD_STTS_CD),&apos;NULL&apos;) as RCRD_STTS_CD,
+coalesce(trim(cv.NO_COB_IND),&apos;NULL&apos;) as NO_COB_IND,
+coalesce(trim(cv.NO_COB_RSN_CD),&apos;NULL&apos;) as NO_COB_RSN_CD,
+--ALPH_PRFX_ID, comes from IMB.PROD
+coalesce(trim(substr(to_char(cv.PROD_STRT_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as PROD_STRT_DT,
+coalesce(trim(substr(to_char(cv.PROD_END_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as PROD_END_DT,
+coalesce(trim(cv.JAA_IND),&apos;NULL&apos;) as JAA_IND,
+--FUNDG_TYPE_TRGT_CD_VAL_TXT, llokup value
+--BNFT_STRT_DT,BNFT_END_DT-- needs to be handled separately
+coalesce(trim(cv.PROD_GRP_NBR),&apos;NULL&apos;) as PROD_GRP_NBR,
+--PROD_SUBTYP_CD--look up value
+--UNDRWRTG_ST_CD, look up value
+--ACCUMR_SRC_CD, look up value
+--PLAN_YEAR_STRT_DT, needs to be handled seprately
+--PLAN_YEAR_END_DT, needs to be handled seprately
+--BNFT_YEAR_TYPE_CD, look up value
+--PROD_TYPE_CD, lookup value,
+coalesce(trim(substr(to_char(cv.PAID_TO_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as PAID_TO_DT,
+coalesce(trim(cv.GRAC_ADJSTD_PAID_TO_DT),&apos;NULL&apos;) as GRAC_ADJSTD_PAID_TO_DT,
+--coalesce(trim(cv.GRAC_ADJSTD_TRMNTN_DT),&apos;NULL&apos;) as GRAC_ADJSTD_TRMNTN_DT, logic not clear,
+--MBU_TYPE_TRGT_CD_VAL_TXT, look up,
+--GRAC_PRD_NBR, from mmcontx,
+--UNDRWRTG_ST_NM look up,
+coalesce(trim(cv.MBR_TRMNTN_RSN_CD),&apos;NULL&apos;) as MBR_TRMNTN_RSN_CD,
+coalesce(trim(cv.MBR_TRMNTN_RSN_TRNSLTN_RCRD_ID),&apos;NULL&apos;) as MBR_TRMNTN_RSN_TRNSLTN_RCRD_ID,
+coalesce(trim(cv.ENRLMNT_STTS_CD),&apos;NULL&apos;) as ENRLMNT_STTS_CD,
+coalesce(trim(cv.ENRLMNT_STTS_TRNSLTN_RCRD_ID),&apos;NULL&apos;) as ENRLMNT_STTS_TRNSLTN_RCRD_ID,
+coalesce(trim(cv.MBR_RLTNSHP_CD),&apos;NULL&apos;) as MBR_RLTNSHP_CD,
+coalesce(trim(cv.MBR_RLTNSHP_TRNSLTN_RCRD_ID),&apos;NULL&apos;) as MBR_RLTNSHP_TRNSLTN_RCRD_ID,
+coalesce(trim(cv.CNCLN_RSN_CD),&apos;NULL&apos;) as CNCLN_RSN_CD,
+coalesce(trim(cv.CNCLN_RSN_TRNSLTN_RCRD_ID),&apos;NULL&apos;) as CNCLN_RSN_TRNSLTN_RCRD_ID,
+coalesce(trim(cv.PKG_CD),&apos;NULL&apos;) as PKG_CD,
+coalesce(trim(cv.GRP_TAPE_IND),&apos;NULL&apos;) as GRP_TAPE_IND,
+coalesce(trim(cv.CNTRCT_EXTNT_CD),&apos;NULL&apos;) as CNTRCT_EXTNT_CD
+from ehub_mbr_sds.ehub_sds_mbr M
+INNER join ehub_mbr_sds.ehub_sds_mbr_cntrct MC ON MC.EHUB_MBR_ID = M.EHUB_MBR_ID
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+where M.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+AND M.SOR_CD = &apos;STAR&apos;
+)a
+order by  sbscrbr_id,MBR_CD, PROD_CD</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW vs SDS - CVRG -Straight Move" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+Set&lt;String&gt; src2 = srcSetBkp; // take backup
+Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - CVRG -CVRG_EFF_DT and CVRG_TRMNTN_DT Single Contract" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW CVRG SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT trim(SBSCRBR_ID) as SBSCRBR_ID,
+trim(MBR_CD) as MBR_CD,
+trim(PROD_CD) as PROD_CD,
+trim(CVRG_EFCTV_DT) as CVRG_EFCTV_DT,
+trim(CVRG_TRMNTN_DT) as CVRG_TRMNTN_DT 
+FROM (
+SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+CON.MM_CONT_CD as PROD_CD,
+MBR.MM_CURR_MEM_BEG_DT as CVRG_EFCTV_DT,
+iif(CAN.MM_MEM_CAN_EFF_DT=&apos;&apos; or CAN.MM_MEM_CAN_EFF_DT is null,&apos;${DEFAULT_DATE}&apos;,CAN.MM_MEM_CAN_EFF_DT)  as CVRG_TRMNTN_DT
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+inner join RAW_MMCONT con
+ON CERT.MM_CERT_NO=con.MM_CERT_NO
+and MBR.MM_GROUP_NO=con.MM_GROUP_NO
+--and MBR.MM_CONT_TYPE=con.MM_CONT_TYPE
+INNER JOIN (SELECT MM_CERT_NO FROM RAW_MMCONT 
+GROUP BY MM_CERT_NO HAVING COUNT(*)=1) CON1
+ON CON.MM_CERT_NO=CON1.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+where MBR.MM_MEMBER_EFF_DT &lt; &apos;${DEFAULT_DATE}&apos;
+UNION
+SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+CON.MM_CONT_CD as PROD_CD,
+MBR.MM_CURR_MEM_BEG_DT as CVRG_EFCTV_DT,
+iif(CAN.MM_MEM_CAN_EFF_DT=&apos;&apos; or CAN.MM_MEM_CAN_EFF_DT is null,&apos;991231&apos;,CAN.MM_MEM_CAN_EFF_DT)  as CVRG_TRMNTN_DT
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+inner join RAW_MMCONT con
+ON CERT.MM_CERT_NO=con.MM_CERT_NO
+and MBR.MM_GROUP_NO=con.MM_GROUP_NO
+--and MBR.MM_CONT_TYPE=con.MM_CONT_TYPE
+INNER JOIN (SELECT MM_CERT_NO FROM RAW_MMCONT 
+GROUP BY MM_CERT_NO HAVING COUNT(*)=1) CON1
+ON CON.MM_CERT_NO=CON1.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+where MBR.MM_MEMBER_EFF_DT&gt;&apos;${DEFAULT_DATE}&apos;
+)A ORDER BY SBSCRBR_ID, MBR_CD,PROD_CD</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS CVRG SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select * from(
+select distinct trim(M.sbscrbr_id) as sbscrbr_id, trim(MC.MBR_CD) as MBR_CD, trim(CV.PROD_CD) as PROD_CD,
+trim(to_char(MIN(cv.cvrg_efctv_dt) OVER (PARTITION BY M.sbscrbr_id, MC.MBR_CD, CV.PROD_CD),&apos;YYMMDD&apos;)) cvrg_efctv_dt,
+trim(to_char(MAX(cv.cvrg_trmntn_dt) OVER (PARTITION BY M.sbscrbr_id, MC.MBR_CD, CV.PROD_CD),&apos;YYMMDD&apos;)) cvrg_trmntn_dt
+from ehub_mbr_sds.ehub_sds_mbr M
+INNER join ehub_mbr_sds.ehub_sds_mbr_cntrct MC ON MC.EHUB_MBR_ID = M.EHUB_MBR_ID
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+inner join (select sbscrbr_id,MBR_CD from(
+select distinct MC.sbscrbr_id, MC.MBR_CD, CV.PROD_CD 
+from ehub_mbr_sds.ehub_sds_mbr_cntrct MC
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+where MC.SOR_CD = &apos;STAR&apos;) group by sbscrbr_id,MBR_CD having count(*)=1)dup
+on M.sbscrbr_id=dup.sbscrbr_id
+and MC.MBR_CD=dup.MBR_CD
+where M.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+AND M.SOR_CD = &apos;STAR&apos;
+)a
+order by  sbscrbr_id,MBR_CD, PROD_CD</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW vs SDS - CVRG -CVRG_EFF_DT and CVRG_TRMNTN_DT Single Contract" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+//Set&lt;String&gt; src2 = srcSetBkp; // take backup
+//Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+//trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - CVRG - CVRG_EFF_DT and CVRG_TRMNTN_DT Multiple Contract" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW CVRG SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT trim(SBSCRBR_ID) as SBSCRBR_ID,
+trim(MBR_CD) as MBR_CD,
+trim(PROD_CD) as PROD_CD,
+trim(CVRG_EFCTV_DT) as CVRG_EFCTV_DT,
+trim(CVRG_TRMNTN_DT) as CVRG_TRMNTN_DT
+FROM (
+SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+CON.MM_CONT_CD as PROD_CD,
+MBR.MM_CURR_MEM_BEG_DT as CVRG_EFCTV_DT,
+iif(CAN.MM_MEM_CAN_EFF_DT=&apos;&apos; or CAN.MM_MEM_CAN_EFF_DT is null,&apos;${DEFAULT_DATE}&apos;,CAN.MM_MEM_CAN_EFF_DT)  as CVRG_TRMNTN_DT
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+inner join RAW_MMCONT con
+ON CERT.MM_CERT_NO=con.MM_CERT_NO
+and MBR.MM_GROUP_NO=con.MM_GROUP_NO
+--and MBR.MM_CONT_TYPE=con.MM_CONT_TYPE
+INNER JOIN (SELECT MM_CERT_NO FROM RAW_MMCONT 
+GROUP BY MM_CERT_NO HAVING COUNT(*)&gt;1) CON1
+ON CON.MM_CERT_NO=CON1.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+where MBR.MM_MEMBER_EFF_DT&lt;&apos;${DEFAULT_DATE}&apos;
+UNION
+SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+CON.MM_CONT_CD as PROD_CD,
+MBR.MM_CURR_MEM_BEG_DT as CVRG_EFCTV_DT,
+iif(CAN.MM_MEM_CAN_EFF_DT=&apos;&apos; or CAN.MM_MEM_CAN_EFF_DT is null,&apos;991231&apos;,CAN.MM_MEM_CAN_EFF_DT)  as CVRG_TRMNTN_DT
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+inner join RAW_MMCONT con
+ON CERT.MM_CERT_NO=con.MM_CERT_NO
+and MBR.MM_GROUP_NO=con.MM_GROUP_NO
+--and MBR.MM_CONT_TYPE=con.MM_CONT_TYPE
+INNER JOIN (SELECT MM_CERT_NO FROM RAW_MMCONT 
+GROUP BY MM_CERT_NO HAVING COUNT(*)&gt;1) CON1
+ON CON.MM_CERT_NO=CON1.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+where MBR.MM_MEMBER_EFF_DT&gt;&apos;${DEFAULT_DATE}&apos;
+)A ORDER BY SBSCRBR_ID, MBR_CD,PROD_CD</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS CVRG SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select * from(
+select distinct trim(M.sbscrbr_id) as sbscrbr_id, trim(MC.MBR_CD) as MBR_CD, trim(CV.PROD_CD) as PROD_CD,
+trim(to_char(MIN(cv.cvrg_efctv_dt) OVER (PARTITION BY M.sbscrbr_id, MC.MBR_CD, CV.PROD_CD),&apos;YYMMDD&apos;)) cvrg_efctv_dt,
+trim(to_char(MAX(cv.cvrg_trmntn_dt) OVER (PARTITION BY M.sbscrbr_id, MC.MBR_CD, CV.PROD_CD),&apos;YYMMDD&apos;)) cvrg_trmntn_dt
+from ehub_mbr_sds.ehub_sds_mbr M
+INNER join ehub_mbr_sds.ehub_sds_mbr_cntrct MC ON MC.EHUB_MBR_ID = M.EHUB_MBR_ID
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+inner join (select sbscrbr_id,MBR_CD from(
+select distinct MC.sbscrbr_id, MC.MBR_CD, CV.PROD_CD 
+from ehub_mbr_sds.ehub_sds_mbr_cntrct MC
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+where MC.LAST_UPDT_DTM &gt; (SYSDATE - 10)
+AND MC.SOR_CD = &apos;STAR&apos;) group by sbscrbr_id,MBR_CD having count(*)&gt;1)dup
+on M.sbscrbr_id=dup.sbscrbr_id
+and MC.MBR_CD=dup.MBR_CD
+where M.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+AND M.SOR_CD = &apos;STAR&apos;
+)a
+order by  sbscrbr_id,MBR_CD, PROD_CD</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW vs SDS - CVRG - CVRG_EFF_DT and CVRG_TRMNTN_DT Multiple Contract" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+//Set&lt;String&gt; src2 = srcSetBkp; // take backup
+//Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+//trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - MBR_CNTRCT - EFF and TERM_DT when CAN seg is present with One Contract" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+&apos;STAR&apos; as SOR_CD,
+TRIM(MM_HCID) AS HCID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+MBR.MM_CURR_MEM_BEG_DT as ENRLMNT_EFCTV_DT,
+CAN.MM_MEM_CAN_EFF_DT as ENRLMNT_TRMNTN_DT
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN RAW_MMCANCL CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+LEFT OUTER JOIN RAW_MMCANCL CTCAN
+ON CERT.MM_CERT_NO=CTCAN.MM_CERT_NO
+and MBR.MM_GROUP_NO=CTCAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CTCAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CTCAN.MM_MEMBER_CD
+INNER JOIN (SELECT MM_CERT_NO FROM  RAW_MMCONT
+GROUP BY MM_CERT_NO HAVING COUNT(*)=1)CAN1
+ON CAN1.MM_CERT_NO=CAN.MM_CERT_NO
+--and CAN1.MM_GROUP_NO=CAN.MM_GROUP_NO
+--and CAN1.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+--and CAN1.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+where CAN.MM_CERT_NO &lt;&gt;&apos;&apos; OR CTCAN.MM_CERT_NO &lt;&gt;&apos;&apos;
+order by MBR.MM_CERT_NO,MBR.MM_FIRST_NAME</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select distinct mcn.sbscrbr_id, 
+trim(mcn.SOR_CD) as SOR_CD,
+trim(mcn.HCID) as HCID,
+coalesce(trim(mcn.MBR_CD),&apos;NULL&apos;) as MBR_CD,
+coalesce(trim(substr(to_char(mcn.ENRLMNT_EFCTV_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as ENRLMNT_EFCTV_DT,
+coalesce(trim(substr(to_char(mcn.ENRLMNT_TRMNTN_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as ENRLMNT_TRMNTN_DT
+from ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn 
+left outer join ehub_mbr_sds.ehub_sds_mbr mbr
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN ETH
+on trim(MBR.ETHNCTY_CD)=trim(ETH.TRGT_CD_VAL_TXT)
+AND eth.clmn_physcl_nm = &apos;ETHNCTY_CD&apos; 
+and eth.sor_cd=&apos;STAR&apos; AND eth.SRC_CD_ID = &apos;3270&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RAC
+on trim(MBR.RACE_CD)=trim(RAC.TRGT_CD_VAL_TXT)
+AND RAC.clmn_physcl_nm = &apos;RACE_CD&apos; 
+and RAC.sor_cd=&apos;STAR&apos; AND RAC.SRC_CD_ID = &apos;3280&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RSN
+on trim(MBR.MBR_TRMNTN_RSN_CD)=trim(RSN.TRGT_CD_VAL_TXT)
+AND RSN.clmn_physcl_nm = &apos;MBR_ENRLMNT_TRMNTN_RSN_CD&apos; 
+and RSN.sor_cd=&apos;STAR&apos; AND RSN.SRC_CD_ID = &apos;8147&apos;
+where mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+order by  mcn.sbscrbr_id</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW vs SDS - MBR_CNTRCT - EFF and TERM_DT when CAN seg is present with One contract" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+Set&lt;String&gt; src2 = srcSetBkp; // take backup
+Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - MBR_CNTRCT - EFF and TERM_DT when CAN seg is present with Multiple Contract" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+&apos;STAR&apos; as SOR_CD,
+TRIM(MM_HCID) AS HCID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+MBR.MM_CURR_MEM_BEG_DT as ENRLMNT_EFCTV_DT,
+IIF( CAN.CAN_CNT=CAN1.CONT_CNT, CAN.MM_MEM_CAN_EFF_DT,&apos;991231&apos; ) as ENRLMNT_TRMNTN_DT  -- with assumption that anohter MMCANCL has NOT been loaded for this member
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+INNER JOIN (SELECT MM_CERT_NO,MM_CONT_TYPE,MM_MEMBER_CD,MAX(MM_MEM_CAN_EFF_DT) AS MM_MEM_CAN_EFF_DT, COUNT(*) AS CAN_CNT
+FROM RAW_MMCANCL 
+ GROUP BY MM_CERT_NO,MM_CONT_TYPE,MM_MEMBER_CD)CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+--and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+INNER JOIN (SELECT MM_CERT_NO, COUNT(*) AS CONT_CNT FROM  RAW_MMCONT
+GROUP BY MM_CERT_NO HAVING COUNT(*)&gt;1)CAN1
+ON CAN1.MM_CERT_NO=CAN.MM_CERT_NO
+--and CAN1.MM_GROUP_NO=CAN.MM_GROUP_NO
+--and CAN1.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+--and CAN1.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+order by MBR.MM_CERT_NO,MBR.MM_FIRST_NAME</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select distinct mcn.sbscrbr_id, 
+trim(mcn.SOR_CD) as SOR_CD,
+trim(mcn.HCID) as HCID,
+coalesce(trim(mcn.MBR_CD),&apos;NULL&apos;) as MBR_CD,
+coalesce(trim(substr(to_char(mcn.ENRLMNT_EFCTV_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as ENRLMNT_EFCTV_DT,
+coalesce(trim(substr(to_char(mcn.ENRLMNT_TRMNTN_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as ENRLMNT_TRMNTN_DT
+from ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn 
+left outer join ehub_mbr_sds.ehub_sds_mbr mbr
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN ETH
+on trim(MBR.ETHNCTY_CD)=trim(ETH.TRGT_CD_VAL_TXT)
+AND eth.clmn_physcl_nm = &apos;ETHNCTY_CD&apos; 
+and eth.sor_cd=&apos;STAR&apos; AND eth.SRC_CD_ID = &apos;3270&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RAC
+on trim(MBR.RACE_CD)=trim(RAC.TRGT_CD_VAL_TXT)
+AND RAC.clmn_physcl_nm = &apos;RACE_CD&apos; 
+and RAC.sor_cd=&apos;STAR&apos; AND RAC.SRC_CD_ID = &apos;3280&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RSN
+on trim(MBR.MBR_TRMNTN_RSN_CD)=trim(RSN.TRGT_CD_VAL_TXT)
+AND RSN.clmn_physcl_nm = &apos;MBR_ENRLMNT_TRMNTN_RSN_CD&apos; 
+and RSN.sor_cd=&apos;STAR&apos; AND RSN.SRC_CD_ID = &apos;8147&apos;
+where mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+order by  mcn.sbscrbr_id</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="RAW vs SDS - MBR_CNTRCT - EFF and TERM_DT when CAN seg is present with Multiple contract" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+Set&lt;String&gt; src2 = srcSetBkp; // take backup
+Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="RAW vs SDS - MBR_CNTRCT - EFF and TERM_DT when CAN seg is not present " enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="RAW MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">src</stringProp>
+          <stringProp name="query">SELECT CERT.MM_CERT_NO as SBSCRBR_ID,
+&apos;STAR&apos; as SOR_CD,
+TRIM(MM_HCID) AS HCID,
+iif( MBR.MM_MEMBER_CD =&apos;&apos; , &apos; &apos; , trim(MBR.MM_MEMBER_CD) ) as MBR_CD,
+MBR.MM_CURR_MEM_BEG_DT as ENRLMNT_EFCTV_DT,
+&apos;991231&apos; as ENRLMNT_TRMNTN_DT
+from RAW_MMCERT CERT
+inner join RAW_MMMEMBR MBR
+on cert.MM_CERT_NO=mbr.MM_CERT_NO
+INNER JOIN RAW_IMMKEYS IMM
+ON MBR.MM_CERT_NO=IMM.MM_CERT_NO
+LEFT OUTER JOIN (SELECT MM_CERT_NO,MM_CONT_TYPE,MM_MEMBER_CD
+FROM RAW_MMCANCL 
+ )CAN
+ON CERT.MM_CERT_NO=CAN.MM_CERT_NO
+--and MBR.MM_GROUP_NO=CAN.MM_GROUP_NO
+and MBR.MM_CONT_TYPE=CAN.MM_CONT_TYPE
+and MBR.MM_MEMBER_CD=CAN.MM_MEMBER_CD
+WHERE CAN.MM_CERT_NO=&apos;&apos; OR CAN.MM_CERT_NO IS NULL
+order by MBR.MM_CERT_NO,MBR.MM_FIRST_NAME</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">srcResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS MBR CNTRCT SQL" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select distinct mcn.sbscrbr_id, 
+trim(mcn.SOR_CD) as SOR_CD,
+trim(mcn.HCID) as HCID,
+coalesce(trim(mcn.MBR_CD),&apos;NULL&apos;) as MBR_CD,
+coalesce(trim(substr(to_char(mcn.ENRLMNT_EFCTV_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as ENRLMNT_EFCTV_DT,
+coalesce(trim(substr(to_char(mcn.ENRLMNT_TRMNTN_DT,&apos;YYYYMMDD&apos;),3)),&apos;NULL&apos;) as ENRLMNT_TRMNTN_DT
+from ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn 
+left outer join ehub_mbr_sds.ehub_sds_mbr mbr
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN ETH
+on trim(MBR.ETHNCTY_CD)=trim(ETH.TRGT_CD_VAL_TXT)
+AND eth.clmn_physcl_nm = &apos;ETHNCTY_CD&apos; 
+and eth.sor_cd=&apos;STAR&apos; AND eth.SRC_CD_ID = &apos;3270&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RAC
+on trim(MBR.RACE_CD)=trim(RAC.TRGT_CD_VAL_TXT)
+AND RAC.clmn_physcl_nm = &apos;RACE_CD&apos; 
+and RAC.sor_cd=&apos;STAR&apos; AND RAC.SRC_CD_ID = &apos;3280&apos;
+left outer join EHUB_RDM.EHUB_CD_TRNSLTN RSN
+on trim(MBR.MBR_TRMNTN_RSN_CD)=trim(RSN.TRGT_CD_VAL_TXT)
+AND RSN.clmn_physcl_nm = &apos;MBR_ENRLMNT_TRMNTN_RSN_CD&apos; 
+and RSN.sor_cd=&apos;STAR&apos; AND RSN.SRC_CD_ID = &apos;8147&apos;
+where mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+order by  mcn.sbscrbr_id</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="false">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="-1911895609">EHUB_CNTCT_MTHD_ID
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JSR223Sampler guiclass="TestBeanGUI" testclass="JSR223Sampler" testname="CNTRCT RAW minus SDS- EFF and TERM DT when CAN segments are not present" enabled="true">
+          <stringProp name="scriptLanguage">groovy</stringProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="cacheKey">count1</stringProp>
+          <stringProp name="script">import java.io.*;
+import java.util.Set;
+//String response = SampleResult.getResponseDataAsString();
+SampleResult.setSuccessful(true);
+String respData = &quot;&quot;;
+
+//ArrayList result1 = vars.getObject(&quot;srcResult&quot;);
+ArrayList srcList = vars.getObject(&quot;srcResult&quot;); // if Hash Set is used directly, then if SQL output is one row, then getting Exception
+ArrayList trgList = vars.getObject(&quot;trgResult&quot;); // hence, first taking result set into ArrayLisy and then into Hash Set :(
+Set&lt;String&gt; srcSet = new HashSet&lt;String&gt;(srcList);
+Set&lt;String&gt; trgSet = new HashSet&lt;String&gt;(trgList);
+
+Set&lt;String&gt; srcSetBkp = srcSet; // take backup
+Set&lt;String&gt; trgSetBkp = trgSet; // take backup
+
+System.out.println(srcList);
+System.out.println(trgList);
+
+srcSet.removeAll(trgSet); //minus
+
+if ( srcSet ) {
+	SampleResult.setSuccessful(false);
+	for (String temp : srcSet){
+        	respData = respData + temp + &quot;\n&quot;; //output of MINUS between two result sets
+     }
+	respData =  &quot;Below records from Source SQL are absent in Target SQL output: \n&quot; + respData + &quot;\n&quot;;
+	SampleResult.setResponseData(respData);
+}
+else {
+	SampleResult.setSuccessful(true);
+	SampleResult.setResponseData(&quot;No Source Record is missing in Target SQL output.&quot;);
+}
+
+// TRG MINUS SRC ------ WIP -------------------------------
+Set&lt;String&gt; src2 = srcSetBkp; // take backup
+Set&lt;String&gt; trg2 = trgSetBkp; // take backup
+trg2.removeAll(src2); //minus</stringProp>
+        </JSR223Sampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="RAW MINUS SDS records" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1523719456">No Source Record is missing in Target SQL output.</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">1</intProp>
+            <stringProp name="Assertion.scope">all</stringProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SDS only checks - CVRG DT comparison with CNTRCT DT comparison" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS- CVRG DT comparison with CNTRCT DT comparison in ENRLMNT table for non high end date" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select  mcn.sbscrbr_id, 
+mcn.MBR_CD,
+mcn.ENRLMNT_EFCTV_DT,
+mcn.ENRLMNT_TRMNTN_DT
+from ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn 
+left outer join ehub_mbr_sds.ehub_sds_mbr mbr
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+where trim(mcn.SOR_CD)=&apos;STAR&apos; and mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+and to_char(mcn.ENRLMNT_TRMNTN_DT,&apos;YYYYMMDD&apos;)&lt;&gt;&apos;99991231&apos;
+MINUS
+select M.sbscrbr_id, MC.MBR_CD,
+min(cvrg_efctv_dt) as ENRLMNT_EFCTV_DT,
+MAX(cv.cvrg_trmntn_dt) as ENRLMNT_TRMNTN_DT
+from ehub_mbr_sds.ehub_sds_mbr M
+INNER join ehub_mbr_sds.ehub_sds_mbr_cntrct MC ON MC.EHUB_MBR_ID = M.EHUB_MBR_ID
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+where M.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+AND M.SOR_CD = &apos;STAR&apos;
+group by M.sbscrbr_id, MC.MBR_CD
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1174980926">SBSCRBR_ID	MBR_CD	ENRLMNT_EFCTV_DT	ENRLMNT_TRMNTN_DT
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="SDS- CVRG DT comparison with CNTRCT DT comparison in CVRG table" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select  mcn.sbscrbr_id, 
+mcn.MBR_CD,
+mcn.ENRLMNT_EFCTV_DT,
+mcn.ENRLMNT_TRMNTN_DT
+from ehub_mbr_sds.EHUB_SDS_MBR_CNTRCT mcn 
+left outer join ehub_mbr_sds.ehub_sds_mbr mbr
+on mbr.ehub_mbr_id=mcn.ehub_mbr_id
+where trim(mcn.SOR_CD)=&apos;STAR&apos; and mbr.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+--and to_char(mcn.ENRLMNT_TRMNTN_DT,&apos;YYYYMMDD&apos;)&lt;&gt;&apos;99991231&apos;
+MINUS
+select M.sbscrbr_id, MC.MBR_CD,
+MC.ENRLMNT_EFCTV_DT,
+MC.ENRLMNT_TRMNTN_DT
+from ehub_mbr_sds.ehub_sds_mbr M
+INNER join ehub_mbr_sds.ehub_sds_mbr_cntrct MC ON MC.EHUB_MBR_ID = M.EHUB_MBR_ID
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+where M.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+AND M.SOR_CD = &apos;STAR&apos;
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1174980926">SBSCRBR_ID	MBR_CD	ENRLMNT_EFCTV_DT	ENRLMNT_TRMNTN_DT
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="SDS- members goes and comes back within a year  WIP" enabled="false">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1451532181000</longProp>
+        <longProp name="ThreadGroup.end_time">1451532181000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Members where the gap between coverage is more than 1 day" enabled="true">
+          <stringProp name="dataSource">trg</stringProp>
+          <stringProp name="query">select a.* , next_cvrg_efctv_dt-cvrg_trmntn_dt as date_diff from(
+select sbscrbr_id,MBR_CD,PROD_CD,cvrg_efctv_dt,cvrg_trmntn_dt,
+prior cvrg_efctv_dt as next_cvrg_efctv_dt, prior cvrg_trmntn_dt as next_cvrg_trmntn_dt
+from(
+select  M.sbscrbr_id, MC.MBR_CD, CV.PROD_CD,
+cv.cvrg_efctv_dt,cv.cvrg_trmntn_dt,
+row_number() over(partition by M.sbscrbr_id, MC.MBR_CD, CV.PROD_CD order by cv.cvrg_efctv_dt desc,cv.cvrg_trmntn_dt desc) as curr,
+row_number() over(partition by M.sbscrbr_id, MC.MBR_CD, CV.PROD_CD order by cv.cvrg_efctv_dt desc,cv.cvrg_trmntn_dt desc)-1 as prev
+from ehub_mbr_sds.ehub_sds_mbr M
+INNER join ehub_mbr_sds.ehub_sds_mbr_cntrct MC ON MC.EHUB_MBR_ID = M.EHUB_MBR_ID
+inner join  ehub_mbr_sds.EHUB_SDS_CVRG CV on  MC.EHUB_MBR_CNTRCT_ID = CV.EHUB_MBR_CNTRCT_ID
+where M.last_updt_dtm&gt;= current_date-${SDS_DATE_FILTER}
+AND M.SOR_CD = &apos;STAR&apos;)a
+connect by prior sbscrbr_id=sbscrbr_id
+and prior MBR_CD=MBR_CD
+and prior PROD_CD=PROD_CD
+and prior curr=prev
+start with prev=0
+)a where  next_cvrg_efctv_dt-cvrg_trmntn_dt&lt;&gt;1</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable">trgResult</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultSetHandler">Store as Object</stringProp>
+        </JDBCSampler>
+        <hashTree>
+          <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+            <collectionProp name="Asserion.test_strings">
+              <stringProp name="1174980926">SBSCRBR_ID	MBR_CD	ENRLMNT_EFCTV_DT	ENRLMNT_TRMNTN_DT
+</stringProp>
+            </collectionProp>
+            <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+            <boolProp name="Assertion.assume_success">false</boolProp>
+            <intProp name="Assertion.test_type">8</intProp>
+          </ResponseAssertion>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Master Log" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>true</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>true</responseData>
+            <samplerData>true</samplerData>
+            <xml>true</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>true</responseHeaders>
+            <requestHeaders>true</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <url>true</url>
+            <fileName>true</fileName>
+            <hostname>true</hostname>
+            <threadCounts>true</threadCounts>
+            <sampleCount>true</sampleCount>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">\\kyshared\EPOST\BIsquad\Regression\bin\Batch_Extract_Suites\eHUB\MBR_Domn\RAW_to_SDS\log\RAW.xml</stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
